@@ -54,6 +54,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+  border: 1px solid red;
 }
 
 body {
@@ -364,9 +365,10 @@ body {
 /* Prevent horizontal scroll */
 html,
 body {
-	overflow-x: hidden;.carousel-cards-container::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
-  }
+	overflow-x: hidden;
+	.carousel-cards-container::-webkit-scrollbar {
+		display: none; /* Chrome/Safari */
+	}
 	max-width: 100vw;
 }
 
@@ -458,7 +460,7 @@ KEY CONCEPTS TO UNDERSTAND:
    - Touch targets should be minimum 44px
 */
 .section {
-  margin: var(--space-5);
+	margin: var(--space-5);
 }
 
 .bottom-nav {
@@ -498,8 +500,8 @@ KEY CONCEPTS TO UNDERSTAND:
 	scroll-snap-type: x mandatory;
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* IE/Edge */
-  gap: var(--space-4);
-  margin: var(--space-5) 0;
+	gap: var(--space-4);
+	margin: var(--space-5) 0;
 }
 
 .carousel-cards-container::-webkit-scrollbar {
@@ -515,49 +517,84 @@ KEY CONCEPTS TO UNDERSTAND:
 	justify-content: center;
 	align-items: center;
 	padding: var(--space-6);
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
+	background-color: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-xl);
+	box-shadow: var(--shadow);
 }
 
 .carousel-card .jp {
-  font-size: var(--font-size-2xl);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: var(--space-2);
+	font-size: var(--font-size-2xl);
+	font-weight: 600;
+	color: var(--text-primary);
+	margin-bottom: var(--space-2);
 }
 
 .carousel-card .en {
-  font-size: var(--font-size-base);
-  color: var(--text-secondary);
+	font-size: var(--font-size-base);
+	color: var(--text-secondary);
 }
 
 .carousel-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-3);
-  margin: var(--space-4) 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--space-3);
+	margin: var(--space-4) 0;
 }
 
 .carousel-btn {
-  width: var(--space-8);
-  height: var(--space-8);
-  background-color: var(--text-muted);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-2xl);
-  transition: all 0.2s ease;
+	width: var(--space-8);
+	height: var(--space-8);
+	background-color: var(--text-muted);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-2xl);
+	transition: all 0.2s ease;
 }
 
 .carousel-btn.active {
-  background-color: var(--primary);
-  width: var(--space-12);
-  height: var(--space-12);
+	background-color: var(--primary);
+	width: var(--space-12);
+	height: var(--space-12);
 }
 
 .carousel-arrow {
-  background: none;
-  border: none;
-  color: var(--text-secondary);
+	background: none;
+	border: none;
+	color: var(--text-secondary);
+}
+
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin: var(--space-12) 0;
+	gap: var(--space-3);
+}
+
+.stat-card {
+	text-align: center;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+	padding: var(--space-4);
+	background-color: var(--surface);
+	box-shadow: var(--shadow-sm);
+}
+
+.stat-icon {
+	font-size: var(--font-size-3xl);
+	margin-bottom: var(--space-2);
+}
+
+.stat-number {
+	font-size: var(--font-size-xl);
+	font-weight: 700;
+	color: var(--primary);
+	margin-bottom: var(--space-1);
+}
+
+.stat-label {
+	text-align: center;
+	color: var(--text-secondary);
+	font-size: var(--font-size-xs);
+	letter-spacing: 0.5px;
 }
