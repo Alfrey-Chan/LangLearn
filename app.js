@@ -1,4 +1,11 @@
-let displayVocabSetCount = 4;
+import { CAROUSEL_CONFIG, VOCAB_CONFIG } from "./constants.js";
+
+// const CAROUSEL_CONFIG = {
+// 	cardWidthPercent: 0.75,
+// 	gap: 16,
+// };
+let carouselInterval;
+let displayVocabSetCount = VOCAB_CONFIG.initialDisplayCount;
 let vocabDataset = [];
 
 const loadMoreBtn = document.getElementById("loadMoreBtn");
@@ -61,30 +68,126 @@ function renderWordsOfTheWeek() {
 				)
 				.join("");
 
-			// generate dots for each word
-			for (let i = 0; i < data.length; i++) {
-				const carouselDot = document.createElement("button");
-				carouselDot.classList.add("carousel-btn");
-				carouselDot.dataset.page = i; // word index
-
-				carouselDot.addEventListener("click", () => {
-					// TODO: CSS to handle horizontal scroll
-					document
-						.querySelector(".carousel-btn.active")
-						.classList.remove("active");
-					carouselDot.classList.add("active");
-				});
-
-				carouselDots.appendChild(carouselDot);
-			}
+			renderCarousel(data, carousel);
+			startCarouselAutoAdvance(data, carousel);
 		})
 		.catch((error) =>
 			console.error("Error fetching words of the week: ", error)
 		);
 }
 
+function scrollToCard(cardIndex, carousel) {
+	const containerWidth = carousel.offsetWidth;
+	const cardWidth = containerWidth * CAROUSEL_CONFIG.cardWidthPercent;
+	const scrollPosition = cardIndex * (cardWidth + CAROUSEL_CONFIG.gap);
+
+	carousel.scrollTo({
+		left: scrollPosition,
+		behavior: "smooth",
+	});
+}
+
+function renderCarousel(data, carousel) {
+	const container = document.getElementById("carouselDots");
+
+	// Previous Arrow
+	const prevArrow = document.createElement("button");
+	prevArrow.classList.add("carousel-arrow", "carousel-prev");
+	prevArrow.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+        `;
+	prevArrow.addEventListener("click", () => {
+		const currentActive = document.querySelector(".carousel-btn.active");
+		const currentIndex = parseInt(currentActive.dataset.page);
+		const prevIndex = currentIndex > 0 ? currentIndex - 1 : data.length - 1;
+		const prevDot = document.querySelector(`[data-page="${prevIndex}"]`);
+		setActiveDot(prevDot);
+		scrollToCard(prevIndex, carousel);
+		stopCarouselAutoAdvance();
+		setTimeout(() => startCarouselAutoAdvance(data, carousel), 3000);
+	});
+
+	// Next Arrow
+	const nextArrow = document.createElement("button");
+	nextArrow.classList.add("carousel-arrow", "carousel-next");
+	nextArrow.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,6 15,12 9,18"></polyline>
+                </svg>
+        `;
+	nextArrow.addEventListener("click", () => {
+		const currentActive = document.querySelector(".carousel-btn.active");
+		const currentIndex = parseInt(currentActive.dataset.page);
+		const nextIndex = currentIndex < data.length - 1 ? currentIndex + 1 : 0;
+		const nextDot = document.querySelector(`[data-page="${nextIndex}"]`);
+		setActiveDot(nextDot);
+		scrollToCard(nextIndex, carousel);
+		stopCarouselAutoAdvance();
+		setTimeout(
+			() => startCarouselAutoAdvance(data, carousel),
+			CAROUSEL_CONFIG.pauseAfterInteraction
+		);
+	});
+
+	// carousel structure
+	container.appendChild(prevArrow);
+	data.forEach((_, index) => {
+		const dot = createCarouselDot(index, carousel, data);
+		container.appendChild(dot);
+	});
+	container.appendChild(nextArrow);
+}
+
+function startCarouselAutoAdvance(data, carousel) {
+	carouselInterval = setInterval(() => {
+		const currentActive = document.querySelector(".carousel-btn.active");
+		const currentIndex = parseInt(currentActive.dataset.page);
+		const nextIndex = currentIndex < data.length - 1 ? currentIndex + 1 : 0; // wrap around
+		const nextDot = document.querySelector(`[data-page="${nextIndex}"]`);
+		setActiveDot(nextDot);
+		scrollToCard(nextIndex, carousel);
+	}, CAROUSEL_CONFIG.autoAdvanceDelay);
+}
+
+function stopCarouselAutoAdvance() {
+	clearInterval(carouselInterval);
+}
+
+function setActiveDot(newActiveDot) {
+	const currentActive = document.querySelector(".carousel-btn.active");
+	if (currentActive) {
+		currentActive.classList.remove("active");
+	}
+	newActiveDot.classList.add("active");
+}
+
+function createCarouselDot(index, carousel, data) {
+	const dot = document.createElement("button");
+	dot.classList.add("carousel-btn");
+	dot.dataset.page = index;
+
+	if (index === 0) {
+		// set first one active
+		dot.classList.add("active");
+	}
+
+	dot.addEventListener("click", () => {
+		stopCarouselAutoAdvance();
+		setActiveDot(dot);
+		scrollToCard(index, carousel);
+		setTimeout(
+			() => startCarouselAutoAdvance(data, carousel),
+			CAROUSEL_CONFIG.pauseAfterInteraction
+		);
+	});
+
+	return dot;
+}
+
 function loadMoreVocabSets() {
-	displayVocabSetCount += 4;
+	displayVocabSetCount += VOCAB_CONFIG.loadMoreIncrement;
 	if (displayVocabSetCount >= vocabDataset.length) {
 		loadMoreBtn.classList.add("hidden");
 	}

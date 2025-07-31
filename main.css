@@ -364,7 +364,9 @@ body {
 /* Prevent horizontal scroll */
 html,
 body {
-	overflow-x: hidden;
+	overflow-x: hidden;.carousel-cards-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
 	max-width: 100vw;
 }
 
@@ -372,27 +374,6 @@ body {
 .touch-target {
 	min-width: 44px;
 	min-height: 44px;
-}
-
-/* Horizontal scroll container */
-.scroll-x {
-	overflow-x: auto;
-	overflow-y: hidden;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
-}
-
-.scroll-x::-webkit-scrollbar {
-	display: none;
-}
-
-/* Scroll snap behavior */
-.scroll-snap-x {
-	scroll-snap-type: x mandatory;
-}
-
-.snap-center {
-	scroll-snap-align: center;
 }
 
 /* Auto-responsive grid */
@@ -476,6 +457,9 @@ KEY CONCEPTS TO UNDERSTAND:
    - grid-auto adapts to any screen size
    - Touch targets should be minimum 44px
 */
+.section {
+  margin: var(--space-5);
+}
 
 .bottom-nav {
 	display: grid;
@@ -500,9 +484,80 @@ KEY CONCEPTS TO UNDERSTAND:
 	gap: var(--space-1);
 	padding: var(--space-2);
 	color: var(--text-secondary);
-  transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 
 .nav-btn.active {
-  color: var(--primary);
+	color: var(--primary);
+}
+
+.carousel-cards-container {
+	display: flex;
+	overflow-x: auto;
+	/* overflow-y: hidden; */
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE/Edge */
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+
+.carousel-cards-container::-webkit-scrollbar {
+	display: none; /* Chrome/Safari */
+}
+
+.carousel-card {
+	min-width: 75%;
+	flex-shrink: 0;
+	scroll-snap-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: var(--space-6);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.carousel-card .jp {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.carousel-card .en {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+
+.carousel-btn {
+  width: var(--space-8);
+  height: var(--space-8);
+  background-color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  transition: all 0.2s ease;
+}
+
+.carousel-btn.active {
+  background-color: var(--primary);
+  width: var(--space-12);
+  height: var(--space-12);
+}
+
+.carousel-arrow {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
 }
