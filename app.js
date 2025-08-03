@@ -37,12 +37,14 @@ function renderVocabularyGrid() {
 				.map(
 					(set) => `
                 <div class="vocab-set-card">
-                    <img src="${set.image}" alt="vocabulary set image">
-                    <h3 class="vocab-set-title">${set.title}</h3>
-                    <div class="vocab-set-meta">
-                        <span class="vocab-entries-count">${set.entries}</span>
-                        <p class="vocab-set-rating">★${set.rating}</p>
-                    </div>
+                    <img class="vocab-set-image" src="${set.image}" alt="vocabulary set image">
+                    <div class="vocab-content">
+						<h3 class="vocab-set-title">${set.title}</h3>
+						<div class="vocab-set-meta">
+							<span class="vocab-entries-count">${set.entries} entries</span>
+							<p class="vocab-set-rating"><span class="star">★</span> ${set.rating}</p>
+						</div>
+					</div>
                 </div>
             `
 				)

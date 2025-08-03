@@ -54,7 +54,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -459,8 +459,33 @@ KEY CONCEPTS TO UNDERSTAND:
    - grid-auto adapts to any screen size
    - Touch targets should be minimum 44px
 */
+
+.main {
+  padding: 80px 0;
+}
+
 .section {
 	margin: var(--space-5);
+}
+
+.section-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.header {
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  background-color: var(--surface);
+  color: var(--primary);
+  font-size: var(--font-size-sm);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border);
 }
 
 .bottom-nav {
@@ -475,6 +500,7 @@ KEY CONCEPTS TO UNDERSTAND:
 	right: 0;
 	padding: var(--space-2) var(--space-4);
 	gap: var(--space-2);
+  border-top: 1px solid var(--border);
 }
 
 .nav-btn {
@@ -597,4 +623,53 @@ KEY CONCEPTS TO UNDERSTAND:
 	color: var(--text-secondary);
 	font-size: var(--font-size-xs);
 	letter-spacing: 0.5px;
+}
+
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit minmax(280px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
+.vocab-set-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.vocab-set-image {
+  width: 100%;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.vocab-content {
+  padding: var(--space-4);
+}
+
+.vocab-set-title {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+  color: var(--text-primary);
+}
+
+.vocab-set-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-secondary);
+}
+
+.star {
+  color: #ffc107;
+}
+
+.load-more-btn {
+  width: 100%;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background-color: var(--primary);
+  border: none;
+  color: #ffff;
+  font-size: var(--font-size-lg);
 }
