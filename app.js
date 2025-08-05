@@ -1,4 +1,5 @@
 import { CAROUSEL_CONFIG, VOCAB_CONFIG } from "./constants.js";
+import { setupPage } from "./components.js";
 
 // const CAROUSEL_CONFIG = {
 // 	cardWidthPercent: 0.75,
@@ -10,19 +11,7 @@ let vocabDataset = [];
 
 const loadMoreBtn = document.getElementById("loadMoreBtn");
 
-function initializeNavigation() {
-	const navBtns = document.querySelectorAll(".nav-btn");
-
-	navBtns.forEach((btn) => {
-		btn.addEventListener("click", () => {
-			navBtns.forEach((btn) => {
-				btn.classList.remove("active");
-			});
-			btn.classList.add("active");
-			console.log(btn.dataset.page);
-		});
-	});
-}
+// Navigation is now handled by components.js
 
 function renderVocabularyGrid() {
 	const vocabGrid = document.getElementById("vocabGrid");
@@ -36,12 +25,12 @@ function renderVocabularyGrid() {
 				.slice(0, displayVocabSetCount)
 				.map(
 					(set) => `
-                <div class="vocab-set-card">
+                <div class="vocab-set-card" data-vocab-set-id="${set.id}" data-vocab-set-title="${set.title}">
                     <img class="vocab-set-image" src="${set.image}" alt="vocabulary set image">
                     <div class="vocab-content">
 						<h3 class="vocab-set-title">${set.title}</h3>
 						<div class="vocab-set-meta">
-							<span class="vocab-entries-count">${set.entries} entries</span>
+							<span>${set.entries} entries</span>
 							<p class="vocab-set-rating"><span class="star">★</span> ${set.rating}</p>
 						</div>
 					</div>
@@ -49,6 +38,16 @@ function renderVocabularyGrid() {
             `
 				)
 				.join("");
+
+			const vocabCards = document.querySelectorAll('.vocab-set-card');
+			vocabCards.forEach(card => {
+				card.addEventListener("click", () => {
+					const vocabSetId = card.dataset.vocabSetId;
+					const vocabSetTitle = card.dataset.vocabSetTitle
+					navigateToVocabSetDetails(vocabSetId, vocabSetTitle);
+				})
+			})
+			
 		})
 		.catch((error) => console.error("Error fetching vocabulary sets: ", error));
 }
@@ -76,6 +75,10 @@ function renderWordsOfTheWeek() {
 		.catch((error) =>
 			console.error("Error fetching words of the week: ", error)
 		);
+}
+
+function navigateToVocabSetDetails(vocabId, vocabSetTitle) {
+	window.location.href = `vocab-set-details.html?id=${vocabId}&title=${encodeURIComponent(vocabSetTitle)}`;
 }
 
 function scrollToCard(cardIndex, carousel) {
@@ -198,7 +201,10 @@ function loadMoreVocabSets() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	initializeNavigation();
+	// Set up page with header and navigation
+	setupPage('Home');
+	
+	// Initialize page content
 	renderWordsOfTheWeek();
 	renderVocabularyGrid();
 

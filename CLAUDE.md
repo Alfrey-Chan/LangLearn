@@ -27,25 +27,14 @@ Help recreate the language learning page represented by the model files. The foc
 - [ ] Add sidebar navigation for desktop
 - [ ] Test HTML structure
 
-### Phase 3: JavaScript Implementation
-- [ ] Create app.js based on model.js
-- [ ] Implement carousel functionality with scroll snap
-- [ ] Add navigation switching logic
-- [ ] Create load more functionality
-- [ ] Add touch interactions and ripple effects
+### Phase 3: Vocabulary Detail Pages (Next - Learning Phase)
+- [ ] Create vocabulary set detail page structure
+- [ ] Style detail pages following existing design patterns
+- [ ] Implement interactive features (rating system, pagination)
+- [ ] Practice responsive design and component architecture
+- [ ] Test navigation flow between pages
 
-### Phase 4: Integration & Testing
-- [ ] Link main.css and app.js to home.html
-- [ ] Test responsive navigation
-- [ ] Validate mobile-first approach
-- [ ] Check animation utilities
-- [ ] Test all JavaScript interactions
-
-### Phase 5: Final Validation
-- [ ] Check for best practices compliance
-- [ ] Test accessibility features
-- [ ] Validate touch targets (44px minimum)
-- [ ] Commit final version
+### Phase 4: To be updated later
 
 ## Key Learning Points
 1. Mobile-first responsive design

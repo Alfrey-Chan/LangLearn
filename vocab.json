@@ -1,50 +1,90 @@
 [
 	{
+		"id": "v7k9m3",
 		"title": "SNS Essentials",
 		"entries": 156,
+		"views": 2500,
 		"rating": 4.8,
-		"image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=200&fit=crop"
+		"image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=200&fit=crop",
+		"tags": [
+			"common", "casual", "beginner"
+		]
 	},
 	{
+		"id": "x2w8n5",
 		"title": "Pets Essentials",
 		"entries": 89,
+		"views": 2500,
 		"rating": 4.9,
-		"image": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=200&fit=crop"
+		"image": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=200&fit=crop",
+		"tags": [
+			"common", "casual", "beginner"
+		]
 	},
 	{
+		"id": "q4r1z9",
 		"title": "Cooking Essentials",
 		"entries": 234,
+		"views": 2500,
 		"rating": 4.7,
-		"image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=200&fit=crop"
+		"image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=200&fit=crop",
+		"tags": [
+			"common", "casual", "beginner"
+		]
 	},
 	{
+		"id": "p8l6d2",
 		"title": "Travel Essentials",
 		"entries": 312,
+		"views": 2500,
 		"rating": 4.9,
-		"image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=200&fit=crop"
+		"image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=200&fit=crop",
+		"tags": [
+			"common", "casual", "beginner"
+		]
 	},
 	{
+		"id": "m3j7h4",
 		"title": "School Essentials",
 		"entries": 178,
+		"views": 2500,
 		"rating": 4.6,
-		"image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=200&fit=crop"
+		"image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=200&fit=crop",
+		"tags": [
+			"common", "casual", "beginner"
+		]
 	},
 	{
+		"id": "b9f5t1",
 		"title": "Gaming Essentials",
 		"entries": 145,
+		"views": 2500,
 		"rating": 4.8,
-		"image": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=200&fit=crop"
+		"image": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=200&fit=crop",
+		"tags": [
+			"common", "casual", "beginner"
+		]
 	},
 	{
+		"id": "s6y3k8",
 		"title": "Business Essentials",
 		"entries": 267,
+		"views": 2500,
 		"rating": 4.7,
-		"image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop"
+		"image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
+		"tags": [
+			"common", "casual", "beginner"
+		]
 	},
 	{
+		"id": "c1n4g7",
 		"title": "Health Essentials",
 		"entries": 198,
+		"views": 2500,
 		"rating": 4.9,
-		"image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop"
+		"image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop",
+		"tags": [
+			"common", "casual", "beginner"
+		]
 	}
 ]

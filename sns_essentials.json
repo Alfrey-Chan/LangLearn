@@ -1,0 +1,162 @@
+[
+	{
+		"word": "フォローする",
+		"hiragana": "ふぉろーする",
+		"romaji": "forō suru",
+		"meanings": [
+			{
+				"translation": "to follow",
+				"detailed_meaning": "Used when you follow someone on social media platforms like Twitter or Instagram.",
+				"usage": "彼のインスタをフォローしたよ。",
+				"additional_notes": "It's a direct borrowing from English and widely used by all age groups."
+			}
+		],
+		"upvotes": 12,
+		"downvotes": 1,
+		"views": 892
+	},
+	{
+		"word": "いいね",
+		"hiragana": "いいね",
+		"romaji": "ii ne",
+		"meanings": [
+			{
+				"translation": "like",
+				"detailed_meaning": "Refers to liking a post or photo on SNS. Literally means 'good, right?'",
+				"usage": "この写真、いいねがたくさんついた！",
+				"additional_notes": "Also used in casual speech to show agreement."
+			}
+		],
+		"upvotes": 23,
+		"downvotes": 0,
+		"views": 1342
+	},
+	{
+		"word": "リツイート",
+		"hiragana": "りついーと",
+		"romaji": "ritsuīto",
+		"meanings": [
+			{
+				"translation": "retweet",
+				"detailed_meaning": "To share someone else's tweet on your timeline.",
+				"usage": "面白い投稿をリツイートした。",
+				"additional_notes": "Often abbreviated as RT."
+			}
+		],
+		"upvotes": 15,
+		"downvotes": 2,
+		"views": 781
+	},
+	{
+		"word": "バズる",
+		"hiragana": "ばずる",
+		"romaji": "bazuru",
+		"meanings": [
+			{
+				"translation": "go viral",
+				"detailed_meaning": "Used when a post, video, or tweet spreads rapidly online.",
+				"usage": "あの動画、昨日からバズってるよ！",
+				"additional_notes": "From English 'buzz'. A modern slang."
+			}
+		],
+		"upvotes": 40,
+		"downvotes": 3,
+		"views": 2147
+	},
+	{
+		"word": "晒す",
+		"hiragana": "さらす",
+		"romaji": "sarasu",
+		"meanings": [
+			{
+				"translation": "to expose",
+				"detailed_meaning": "Means to publicly share private or sensitive content online.",
+				"usage": "彼の秘密をネットで晒したのはひどい。",
+				"additional_notes": "Carries a strong negative connotation."
+			}
+		],
+		"upvotes": 9,
+		"downvotes": 4,
+		"views": 603
+	},
+	{
+		"word": "エモい",
+		"hiragana": "えもい",
+		"romaji": "emoi",
+		"meanings": [
+			{
+				"translation": "emotional / nostalgic",
+				"detailed_meaning": "Used to describe something emotionally moving, beautiful, or nostalgic.",
+				"usage": "この写真、めっちゃエモい。",
+				"additional_notes": "Originally from 'emotional'. Popular among younger people."
+			}
+		],
+		"upvotes": 33,
+		"downvotes": 2,
+		"views": 1675
+	},
+	{
+		"word": "裏垢",
+		"hiragana": "うらあか",
+		"romaji": "uraaka",
+		"meanings": [
+			{
+				"translation": "secret account",
+				"detailed_meaning": "A hidden or private SNS account used separately from one's main profile.",
+				"usage": "裏垢では本音をつぶやいてる。",
+				"additional_notes": "Often used for anonymity or venting."
+			}
+		],
+		"upvotes": 27,
+		"downvotes": 1,
+		"views": 1244
+	},
+	{
+		"word": "推し",
+		"hiragana": "おし",
+		"romaji": "oshi",
+		"meanings": [
+			{
+				"translation": "favorite (idol, character)",
+				"detailed_meaning": "Refers to a favorite idol, character, or performer you support.",
+				"usage": "私の推しはこのアニメの主人公！",
+				"additional_notes": "Deeply rooted in fan culture."
+			}
+		],
+		"upvotes": 42,
+		"downvotes": 0,
+		"views": 2311
+	},
+	{
+		"word": "自撮り",
+		"hiragana": "じどり",
+		"romaji": "jidori",
+		"meanings": [
+			{
+				"translation": "selfie",
+				"detailed_meaning": "Taking a photo of oneself, usually for posting on SNS.",
+				"usage": "今日は気分がいいから自撮りアップしよう。",
+				"additional_notes": "Common among all ages now, originally slang."
+			}
+		],
+		"upvotes": 17,
+		"downvotes": 1,
+		"views": 989
+	},
+	{
+		"word": "炎上",
+		"hiragana": "えんじょう",
+		"romaji": "enjō",
+		"meanings": [
+			{
+				"translation": "SNS backlash",
+				"detailed_meaning": "When a person or post gets flooded with criticism and negativity online.",
+				"usage": "彼の投稿が炎上してアカウント消えた。",
+				"additional_notes": "Literally means 'catching fire'. Serious in tone."
+			}
+		],
+		"upvotes": 21,
+		"downvotes": 5,
+		"views": 1502
+	}
+]
