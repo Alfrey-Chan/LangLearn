@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="main.css" />
+	</head>
+	<body class="page-vocab-entry-details">
+		<div class="app">
+			<main class="main">
+				<!-- Entry header -->
+				<section class="section">
+					<div class="entry-header">
+						<h1 class="entry-word"></h1>
+						<div class="action-buttons">
+							<button
+								class="action-btn"
+								data-action="audio"
+								aria-label="Play audio"
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+									<path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+									<path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+								</svg>
+							</button>
+							<button
+								class="action-btn"
+								data-action="favorite"
+								aria-label="Add to favorites"
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path
+										d="M20.8 4.6c-1.8-1.7-4.6-1.7-6.3 0L12 7.1l-2.5-2.5c-1.8-1.7-4.6-1.7-6.3 0s-1.7 4.6 0 6.3l8.8 8.8 8.8-8.8c1.8-1.7 1.8-4.5 0-6.3z"
+									/>
+								</svg>
+							</button>
+							<button class="add-note-btn" data-action="save-note">
+								<svg
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<line x1="12" y1="5" x2="12" y2="19"></line>
+									<line x1="5" y1="12" x2="19" y2="12"></line>
+								</svg>
+								Save to Notes
+							</button>
+						</div>
+					</div>
+					<div class="how-to-read">
+						<span class="entry-hiragana"></span>
+						<span class="entry-romaji"></span>
+					</div>
+				</section>
+
+				<!-- Definition -->
+				<section class="section">
+					<h2 class="definition">Definitions</h2>
+					<dl class="definition-list">
+						<!-- Dynamic population -->
+					</dl>
+				</section>
+
+				<!-- Example Sentences -->
+				<section class="section">
+					<h2 class="example-sentences-heading">Example Sentences</h2>
+					<div class="toggle-btns">
+						<button class="toggle-btn active" data-tab="hiragana">Hiragana</button>
+						<button class="toggle-btn" data-tab="romaji">Romaji</button>
+					</div>
+					<div class="example-sentences-container">
+						<!-- Dynamic population -->
+					</div>
+					<!-- <button class="show-more-btn">Next Example</button> -->
+				</section>
+
+				<!-- Contextual Usage Examples -->
+				<section class="section">
+					<h2>Contextual Usage Examples</h2>
+
+					<div class="contextual-usage-examples"></div>
+				</section>
+
+				<!-- Related words -->
+				<section class="section">
+					<h2>Related Entries</h2>
+
+					<div class="related-words"></div>
+				</section>
+			</main>
+		</div>
+
+		<script type="module" src="vocab-entry-details.js"></script>
+	</body>
+</html>

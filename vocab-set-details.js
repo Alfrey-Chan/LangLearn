@@ -39,6 +39,12 @@ function renderVocabSetGrid(vocabSetData, currentPage = 1) {
 	itemsToDisplay.forEach((entry) => {
 		const card = document.createElement("div");
 		card.classList.add("entry-card");
+
+        card.addEventListener("click", () => {
+            const entryId = entry.id;
+			window.location.href = `vocab-entry-details.html?id=${entryId}`;
+        })
+
 		card.innerHTML = `
             <div class="entry-header">
                 <h2 class="entry-word">${entry.word}</h2><span class="entry-hiragana">【${entry.hiragana}】</span>

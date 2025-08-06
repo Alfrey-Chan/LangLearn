@@ -106,10 +106,10 @@ export function createPagination(numItems, itemsPerPage, numPagesDisplay) {
 				</svg>
 			</button>
 		`;
-		
+
 		// Add pages
 		paginationHTML += pagesHTML;
-		
+
 		// Add next button
 		paginationHTML += `
 			<button class="next-btn">
@@ -126,13 +126,13 @@ export function createPagination(numItems, itemsPerPage, numPagesDisplay) {
 	return paginationHTML;
 }
 
-export function updateActivePage(currentActive, newActive) {
+export function updateActive(currentActive, newActive) {
 	currentActive.classList.remove("active");
 	newActive.classList.add("active");
 }
 
 export function createBackButton(text = "Back") {
-    return `
+	return `
         <button class="back-button" onclick="history.back()">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="15,18 9,12 15,6"></polyline>
@@ -140,6 +140,33 @@ export function createBackButton(text = "Back") {
             ${text}
         </button>
     `;
+}
+
+export function createRatingButtons() {
+	return `
+		<div class="ratings">
+            <button class="rating-btn" data-type="upvote" data-count="12">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 10v12"/>
+                    <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/>
+                </svg>
+                <span class="rating-count">12</span>
+            </button>
+            <button class="rating-btn" data-type="downvote" data-count="0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 14V2"/>
+                    <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z"/>
+                </svg>
+                <span class="rating-count">0</span>
+            </button>
+        </div>
+	`;
+}
+
+export function createSeparator() {
+	const separator = document.createElement("div");
+	separator.classList.add("separator");
+	return separator;
 }
 
 // Initialize navigation functionality for bottom nav
