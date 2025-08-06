@@ -17,7 +17,7 @@
 				<section class="section">
 					<div class="entry-header">
 						<h1 class="entry-word"></h1>
-						<div class="action-buttons">
+						<div class="action-btns">
 							<button
 								class="action-btn"
 								data-action="audio"
@@ -54,7 +54,7 @@
 									/>
 								</svg>
 							</button>
-							<button class="add-note-btn" data-action="save-note">
+							<button class="save-note-btn" data-action="save-note">
 								<svg
 									width="20"
 									height="20"
@@ -70,7 +70,7 @@
 							</button>
 						</div>
 					</div>
-					<div class="how-to-read">
+					<div class="entry-readings">
 						<span class="entry-hiragana"></span>
 						<span class="entry-romaji"></span>
 					</div>
@@ -78,37 +78,70 @@
 
 				<!-- Definition -->
 				<section class="section">
-					<h2 class="definition">Definitions</h2>
-					<dl class="definition-list">
+					<h2 class="section-title">Definitions</h2>
+					<div class="definition-list">
 						<!-- Dynamic population -->
-					</dl>
+					</div>
 				</section>
 
 				<!-- Example Sentences -->
 				<section class="section">
-					<h2 class="example-sentences-heading">Example Sentences</h2>
-					<div class="toggle-btns">
-						<button class="toggle-btn active" data-tab="hiragana">Hiragana</button>
+					<h2 class="section-title">Example Sentences</h2>
+					<div class="toggle-btns" data-section="example-sentences">
+						<button class="toggle-btn active" data-tab="hiragana">
+							Hiragana
+						</button>
 						<button class="toggle-btn" data-tab="romaji">Romaji</button>
 					</div>
 					<div class="example-sentences-container">
 						<!-- Dynamic population -->
 					</div>
-					<!-- <button class="show-more-btn">Next Example</button> -->
+					<button class="show-more-btn">Show More</button>
 				</section>
 
 				<!-- Contextual Usage Examples -->
 				<section class="section">
-					<h2>Contextual Usage Examples</h2>
-
+					<h2 class="section-title">Contextual Usage Examples</h2>
+					<div class="toggle-btns" data-section="contextual-examples">
+						<button class="toggle-btn active" data-tab="hiragana">
+							Hiragana
+						</button>
+						<button class="toggle-btn" data-tab="romaji">Romaji</button>
+					</div>
 					<div class="contextual-usage-examples"></div>
+					<button class="show-more-btn">Show More</button>
+				</section>
+
+				<section class="section">
+					<h2 class="section-title">Additional Notes</h2>
+
+					<div class="additional-notes card">
+						<p class="additional-notes-text"></p>
+					</div>
 				</section>
 
 				<!-- Related words -->
 				<section class="section">
-					<h2>Related Entries</h2>
+					<h2 class="section-title">Related Entries</h2>
 
-					<div class="related-words"></div>
+					<div class="related-words-buttons">
+						<!-- TEMP -->
+						 <button class="related-words-btn">
+							<span class="related-jp">食事</span>
+							<span class="related-hira">しょくじ</span>
+							<span class="related-mean">- meal</span>
+						 </button>
+						 <button class="related-words-btn">
+							<span class="related-jp">食ど</span>
+							<span class="related-hira">しょくど</span>
+							<span class="related-mean">- dining hall</span>
+						 </button>
+						 <button class="related-words-btn">
+							<span class="related-jp">外食</span>
+							<span class="related-hira">がいしょく</span>
+							<span class="related-mean">- eat out</span>
+						 </button>
+					</div>
 				</section>
 			</main>
 		</div>

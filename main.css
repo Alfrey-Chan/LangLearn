@@ -306,11 +306,11 @@ body {
 
 /* Base Card Component */
 .card {
-	background: white;
+	border: 1px solid var(--border);
 	border-radius: var(--radius-lg);
 	box-shadow: var(--shadow-sm);
-	border: 1px solid var(--border);
-	overflow: hidden;
+	padding: var(--space-6);
+	background-color: var(--surface);
 }
 
 .card:hover {
@@ -407,9 +407,10 @@ body {
 }
 
 .section-title {
-	font-size: var(--font-size-xl);
+	font-size: var(--font-size-2xl);
 	font-weight: 600;
 	color: var(--text-primary);
+	margin-bottom: var(--space-4);
 }
 
 /* Header Component */
@@ -617,7 +618,7 @@ body {
 	color: #ffc107;
 }
 
-.load-more-btn {
+.show-more-btn {
 	width: 100%;
 	padding: var(--space-4);
 	border-radius: var(--radius-lg);
@@ -629,7 +630,7 @@ body {
 	transition: all 0.2s ease;
 }
 
-.load-more-btn:hover {
+.show-more-btn:hover {
 	background-color: #ff5252;
 }
 
@@ -726,11 +727,20 @@ body {
 	font-weight: 800;
 }
 
+.entry-readings {
+	display: flex;
+	gap: var(--space-3);
+}
+
 .entry-hiragana,
 .entry-romaji {
 	font-size: var(--font-size-sm);
 	color: var(--text-secondary);
 	margin-bottom: var(--space-2);
+}
+
+.entry-romaji {
+	font-style: italic;
 }
 
 .entry-meaning {
@@ -758,6 +768,18 @@ body {
 .action-btn:hover {
 	background-color: var(--border);
 	color: var(--text-primary);
+}
+
+.save-note-btn {
+  display: flex;
+  align-items: center;
+  color: var(--surface);
+  font-weight: 800;
+  gap: var(--space-1);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-2);
 }
 
 /* Entry Metadata */
@@ -807,18 +829,18 @@ body {
    ============================================= */
 
 /* Page-specific modifications */
-
-/* Entry Definition */
-/* .definition-list .definition-item:first-child {
-  border-top: 1px solid var(--border);
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+.page-vocab-entry-details .show-more-btn {
+  margin-top: var(--space-4);
+  font-size: var(--font-size-sm);
+  padding: var(--space-3);
 }
 
-.definition-list .definition-item:last-child {
-  border-bottom: 1px solid var(--border);
-  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-} */
+/* Entry Header */
+.entry-word {
+	font-size: var(--font-size-2xl);
+}
 
+/* Entry Definition */
 .definition-list {
 	margin: var(--space-4) 0 var(--space-8) 0;
 	border: 1px solid var(--border);
@@ -833,7 +855,6 @@ body {
 	grid-template-columns: auto 1fr;
 	row-gap: var(--space-1);
 	column-gap: var(--space-4);
-	/* border-bottom: 1px solid var(--border); */
 }
 
 .definition-number {
@@ -855,10 +876,6 @@ body {
 }
 
 /* Entry example sentences */
-.example-sentences-heading {
-	margin-bottom: var(--space-5);
-}
-
 .toggle-btns {
 	background-color: var(--surface);
 	display: grid;
@@ -888,13 +905,6 @@ body {
 	gap: var(--space-4);
 }
 
-.example-sentences-item {
-	border: 1px solid var(--border);
-	border-radius: var(--radius-lg);
-	padding: var(--space-6);
-	box-shadow: var(--shadow-sm);
-}
-
 .example-japanese {
 	font-size: var(--font-size-lg);
 	font-weight: 600;
@@ -906,15 +916,88 @@ body {
 .example-romaji {
 	font-weight: 300;
 	color: var(--text-secondary);
+	font-size: var(--font-size-xs);
 }
 
 .example-romaji {
 	display: none;
+	font-style: italic;
 }
 
 .example-translation {
 	margin-top: var(--space-3);
 	font-weight: 500;
+}
+
+/* Entry contextual examples */
+.contextual-usage-examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.dialogue-speaker {
+	font-weight: 500;
+	margin-right: var(--space-1);
+}
+
+.dialogue-japanese {
+	color: var(--text-primary);
+	margin-bottom: var(--space-1);
+	font-weight: 500;
+}
+
+.dialogue-hiragana,
+.dialogue-romaji {
+	color: var(--text-secondary);
+	font-weight: 300;
+	font-size: var(--font-size-xs);
+	margin-top: var(--space-1);
+}
+
+.dialogue-romaji {
+	display: none;
+	font-style: italic;
+}
+
+.dialogue-translation {
+	margin: var(--space-3) 0;
+	font-weight: 500;
+}
+
+/* Entry additional notes */
+.additional-notes-text {
+  color: var(--text-secondary);
+}
+
+/* Related words */ 
+/*TEMP!!!!*/
+.related-words-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.related-words-btn {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--surface);
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+}
+
+.related-jp {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.related-hira {
+  color: var(--text-secondary);
+}
+.related-mean {
+  color: var(--text-secondary);
 }
 
 /* =============================================
