@@ -9,7 +9,6 @@ let carouselInterval;
 let displayVocabSetCount = VOCAB_CONFIG.initialDisplayCount;
 let vocabDataset = [];
 
-const loadMoreBtn = document.getElementById("loadMoreBtn");
 
 // Navigation is now handled by components.js
 
@@ -192,9 +191,11 @@ function createCarouselDot(index, carousel, data) {
 }
 
 function loadMoreVocabSets() {
+	const showMoreBtn = document.getElementById("showMoreBtn");
+
 	displayVocabSetCount += VOCAB_CONFIG.loadMoreIncrement;
 	if (displayVocabSetCount >= vocabDataset.length) {
-		loadMoreBtn.classList.add("hidden");
+		showMoreBtn.classList.add("hidden");
 	}
 
 	renderVocabularyGrid();
@@ -208,7 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	renderWordsOfTheWeek();
 	renderVocabularyGrid();
 
-	loadMoreBtn.addEventListener("click", () => {
+	const showMoreBtn = document.getElementById("showMoreBtn");
+	showMoreBtn.addEventListener("click", () => {
 		loadMoreVocabSets();
 	});
 });

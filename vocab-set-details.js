@@ -1,7 +1,7 @@
 import {
 	setupPage,
 	createTagsList,
-	updateActivePage,
+	updateActive,
 	createPagination,
 } from "./components.js";
 import { VOCAB_CONFIG } from "./constants.js";
@@ -151,7 +151,7 @@ function initializePaginationEvents(vocabData) {
 			);
 
 			if (prevPage) {
-				updateActivePage(currentActive, prevPage);
+				updateActive(currentActive, prevPage);
 				updatePrevNextButtons();
 				renderVocabSetGrid(vocabData, currentIndex - 1);
 			}
