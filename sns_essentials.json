@@ -1,5 +1,6 @@
 [
-	{
+	{	
+		"id": 1,
 		"word": "フォローする",
 		"hiragana": "ふぉろーする",
 		"romaji": "forō suru",
@@ -15,7 +16,8 @@
 		"downvotes": 1,
 		"views": 892
 	},
-	{
+	{	
+		"id": 2,
 		"word": "いいね",
 		"hiragana": "いいね",
 		"romaji": "ii ne",
@@ -31,7 +33,8 @@
 		"downvotes": 0,
 		"views": 1342
 	},
-	{
+	{	
+		"id": 3,
 		"word": "リツイート",
 		"hiragana": "りついーと",
 		"romaji": "ritsuīto",
@@ -47,7 +50,8 @@
 		"downvotes": 2,
 		"views": 781
 	},
-	{
+	{	
+		"id": 4,
 		"word": "バズる",
 		"hiragana": "ばずる",
 		"romaji": "bazuru",
@@ -63,7 +67,8 @@
 		"downvotes": 3,
 		"views": 2147
 	},
-	{
+	{	
+		"id": 5,
 		"word": "晒す",
 		"hiragana": "さらす",
 		"romaji": "sarasu",
@@ -79,7 +84,8 @@
 		"downvotes": 4,
 		"views": 603
 	},
-	{
+	{	
+		"id": 6,
 		"word": "エモい",
 		"hiragana": "えもい",
 		"romaji": "emoi",
@@ -95,7 +101,8 @@
 		"downvotes": 2,
 		"views": 1675
 	},
-	{
+	{	
+		"id": 7,
 		"word": "裏垢",
 		"hiragana": "うらあか",
 		"romaji": "uraaka",
@@ -111,7 +118,8 @@
 		"downvotes": 1,
 		"views": 1244
 	},
-	{
+	{	
+		"id": 8,
 		"word": "推し",
 		"hiragana": "おし",
 		"romaji": "oshi",
@@ -127,7 +135,8 @@
 		"downvotes": 0,
 		"views": 2311
 	},
-	{
+	{	
+		"id": 9,
 		"word": "自撮り",
 		"hiragana": "じどり",
 		"romaji": "jidori",
@@ -143,7 +152,8 @@
 		"downvotes": 1,
 		"views": 989
 	},
-	{
+	{	
+		"id": 10,
 		"word": "炎上",
 		"hiragana": "えんじょう",
 		"romaji": "enjō",

@@ -1,0 +1,682 @@
+[
+	{
+		"id": 1,
+		"word": "フォローする",
+		"hiragana": "ふぉろーする",
+		"romaji": "forō suru",
+		"meanings": [
+			{
+				"short_translation": "to follow",
+				"detailed_meaning": "To subscribe to someone's social media account to see their posts in your feed. Used across all social media platforms.",
+				"usage_examples": [
+					{
+						"japanese": "新しいアーティストをフォローしてみた。",
+						"hiragana": "あたらしいあーてぃすとをふぉろーしてみた。",
+						"romaji": "atarashii ātisuto wo forō shite mita.",
+						"translation": "I tried following a new artist."
+					},
+					{
+						"japanese": "フォローしすぎて、タイムラインが見きれない。",
+						"hiragana": "ふぉろーしすぎて、たいむらいんがみきれない。",
+						"romaji": "forō shi sugite, taimura in ga mi kirenai.",
+						"translation": "I followed too many people, so I can't keep up with my timeline."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "この料理研究家の人、すごくおいしそうなレシピ投稿してるよ。",
+								"hiragana": "このりょうりけんきゅうかのひと、すごくおいしそうなれしぴとうこうしてるよ。",
+								"romaji": "kono ryōri kenkyūka no hito, sugoku oishisō na reshipi tōkō shiteru yo.",
+								"translation": "This cooking researcher posts really delicious-looking recipes."
+							},
+							{
+								"speaker": "B",
+								"japanese": "本当だ！私もフォローしよう。毎日の献立の参考になりそう。",
+								"hiragana": "ほんとうだ！わたしもふぉろーしよう。まいにちのこんだてのさんこうになりそう。",
+								"romaji": "hontō da! watashi mo forō shiyō. mainichi no kondate no sankō ni narisō.",
+								"translation": "You're right! I'll follow them too. It'll probably help with daily meal planning."
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "フォロワー数が1000人を超えた！",
+								"hiragana": "ふぉろわーすうがせんにんをこえた！",
+								"romaji": "forowā sū ga sen nin wo koeta!",
+								"translation": "My follower count exceeded 1000 people!"
+							},
+							{
+								"speaker": "B",
+								"japanese": "おめでとう！どんな投稿が人気だったの？",
+								"hiragana": "おめでとう！どんなとうこうがにんきだったの？",
+								"romaji": "omedetō! donna tōkō ga ninki datta no?",
+								"translation": "Congratulations! What kind of posts were popular?"
+							}
+						]
+					}
+				],
+				"additional_notes": "Direct borrowing from English. Can be used as フォローバック (follow back) when following someone who follows you.",
+				"upvotes": 12,
+				"downvotes": 1,
+				"views": 892
+			}
+		]
+	},
+	{
+		"id": 2,
+		"word": "いいね",
+		"hiragana": "いいね",
+		"romaji": "ii ne",
+		"meanings": [
+			{
+				"short_translation": "like (social media)",
+				"detailed_meaning": "The action of pressing the 'like' button on social media posts to show approval or appreciation. Also used in everyday conversation to express agreement.",
+				"usage_examples": [
+					{
+						"japanese": "友達の投稿にいいねを押した。",
+						"hiragana": "ともだちのとうこうにいいねをおした。",
+						"romaji": "tomodachi no tōkō ni ii ne wo oshita.",
+						"translation": "I liked my friend's post."
+					},
+					{
+						"japanese": "いいねの数で人気がわかる。",
+						"hiragana": "いいねのかずでにんきがわかる。",
+						"romaji": "ii ne no kazu de ninki ga wakaru.",
+						"translation": "You can tell popularity by the number of likes."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "昨日投稿した写真、いいねが全然つかない…",
+								"hiragana": "きのうとうこうしたしゃしん、いいねがぜんぜんつかない…",
+								"romaji": "kinō tōkō shita shashin, ii ne ga zenzen tsukanai...",
+								"translation": "The photo I posted yesterday isn't getting any likes at all..."
+							},
+							{
+								"speaker": "B",
+								"japanese": "大丈夫だよ。時間帯によって違うから。私がいいねしておくね！",
+								"hiragana": "だいじょうぶだよ。じかんたいによってちがうから。わたしがいいねしておくね！",
+								"romaji": "daijōbu da yo. jikantai ni yotte chigau kara. watashi ga ii ne shite oku ne!",
+								"translation": "It's okay. It depends on the time of day. I'll like it for you!"
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "今度の週末、映画を見に行かない？",
+								"hiragana": "こんどのしゅうまつ、えいがをみにいかない？",
+								"romaji": "kondo no shūmatsu, eiga wo mi ni ikanai?",
+								"translation": "Want to go see a movie this weekend?"
+							},
+							{
+								"speaker": "B",
+								"japanese": "いいね！何の映画にする？",
+								"hiragana": "いいね！なんのえいがにする？",
+								"romaji": "ii ne! nan no eiga ni suru?",
+								"translation": "Sounds good! What movie should we see?"
+							}
+						]
+					}
+				],
+				"additional_notes": "Originally means 'good, isn't it?' but now universally recognized as the 'like' function. Used both online and in casual conversation to show agreement.",
+				"upvotes": 23,
+				"downvotes": 0,
+				"views": 1342
+			}
+		]
+	},
+	{
+		"id": 3,
+		"word": "リツイート",
+		"hiragana": "りついーと",
+		"romaji": "ritsuīto",
+		"meanings": [
+			{
+				"short_translation": "retweet",
+				"detailed_meaning": "To share someone else's tweet on your own timeline, spreading the content to your followers. Can include your own comment when sharing.",
+				"usage_examples": [
+					{
+						"japanese": "面白いニュースをリツイートして友達に教えた。",
+						"hiragana": "おもしろいにゅーすをりついーとしてともだちにおしえた。",
+						"romaji": "omoshiroi nyūsu wo ritsuīto shite tomodachi ni oshieta.",
+						"translation": "I retweeted interesting news to inform my friends."
+					},
+					{
+						"japanese": "リツイートする前に、内容をちゃんとチェックしよう。",
+						"hiragana": "りついーとするまえに、ないようをちゃんとちぇっくしよう。",
+						"romaji": "ritsuīto suru mae ni, naiyō wo chanto chekku shiyō.",
+						"translation": "Let's properly check the content before retweeting."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "地震の情報をリツイートしたんだけど、後でデマだったってわかった。",
+								"hiragana": "じしんのじょうほうをりついーとしたんだけど、あとででまだったってわかった。",
+								"romaji": "jishin no jōhō wo ritsuīto shita n da kedo, ato de dema datta tte wakatta.",
+								"translation": "I retweeted earthquake information, but later found out it was fake news."
+							},
+							{
+								"speaker": "B",
+								"japanese": "それは大変だったね。災害情報は特に気をつけないと。公式アカウントを確認してからリツイートするのがいいよ。",
+								"hiragana": "それはたいへんだったね。さいがいじょうほうはとくにきをつけないと。こうしきあかうんとをかくにんしてからりついーとするのがいいよ。",
+								"romaji": "sore wa taihen datta ne. saigai jōhō wa toku ni ki wo tsukenai to. kōshiki akaunto wo kakunin shite kara ritsuīto suru no ga ii yo.",
+								"translation": "That must have been tough. You have to be especially careful with disaster information. It's better to check official accounts before retweeting."
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "このツイート、すごくいいことが書いてある。",
+								"hiragana": "このついーと、すごくいいことがかいてある。",
+								"romaji": "kono tsuīto, sugoku ii koto ga kaite aru.",
+								"translation": "This tweet has something really good written in it."
+							},
+							{
+								"speaker": "B",
+								"japanese": "リツイートして広めよう！コメントも付けて。",
+								"hiragana": "りついーとしてひろめよう！こめんともつけて。",
+								"romaji": "ritsuīto shite hiromeyō! komento mo tsukete.",
+								"translation": "Let's retweet it to spread the word! Add a comment too."
+							}
+						]
+					}
+				],
+				"additional_notes": "Often abbreviated as 'RT'. Can be used with commentary (引用リツイート - quote retweet) or without commentary.",
+				"upvotes": 15,
+				"downvotes": 2,
+				"views": 781
+			}
+		]
+	},
+	{
+		"id": 4,
+		"word": "バズる",
+		"hiragana": "ばずる",
+		"romaji": "bazuru",
+		"meanings": [
+			{
+				"short_translation": "go viral",
+				"detailed_meaning": "When content spreads rapidly across social media, gaining massive attention, shares, and engagement in a short period. Creates a 'buzz' online.",
+				"usage_examples": [
+					{
+						"japanese": "彼の動画が一晩でバズった。",
+						"hiragana": "かれのどうががひとばんでばずった。",
+						"romaji": "kare no dōga ga hitoban de bazutta.",
+						"translation": "His video went viral overnight."
+					},
+					{
+						"japanese": "バズりそうなハッシュタグを考えている。",
+						"hiragana": "ばずりそうなはっしゅたぐをかんがえている。",
+						"romaji": "bazuri sō na hasshutagu wo kangaete iru.",
+						"translation": "I'm thinking of hashtags that might go viral."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "見て！私のツイートがバズってる！リツイートが5000超えた！",
+								"hiragana": "みて！わたしのついーとがばずってる！りついーとがごせんこえた！",
+								"romaji": "mite! watashi no tsuīto ga bazutteru! ritsuīto ga gosen koeta!",
+								"translation": "Look! My tweet is going viral! Retweets exceeded 5000!"
+							},
+							{
+								"speaker": "B",
+								"japanese": "すごいね！何をツイートしたの？バズるコツがあるの？",
+								"hiragana": "すごいね！なにをついーとしたの？ばずるこつがあるの？",
+								"romaji": "sugoi ne! nani wo tsuīto shita no? bazuru kotsu ga aru no?",
+								"translation": "That's amazing! What did you tweet? Do you have any tips for going viral?"
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "最近、なんでもかんでもバズらせようとする人が多いよね。",
+								"hiragana": "さいきん、なんでもかんでもばずらせようとするひとがおおいよね。",
+								"romaji": "saikin, nandemo kandemo bazaraseyō to suru hito ga ōi yo ne.",
+								"translation": "Lately, there are a lot of people trying to make everything go viral."
+							},
+							{
+								"speaker": "B",
+								"japanese": "そうだね。自然にバズるのが一番いいと思う。無理やりだと炎上することもあるし。",
+								"hiragana": "そうだね。しぜんにばずるのがいちばんいいとおもう。むりやりだとえんじょうすることもあるし。",
+								"romaji": "sō da ne. shizen ni bazuru no ga ichiban ii to omou. muriyari da to enjō suru koto mo aru shi.",
+								"translation": "That's true. I think it's best when things go viral naturally. When it's forced, it can sometimes lead to backlash."
+							}
+						]
+					}
+				],
+				"additional_notes": "From English 'buzz'. Modern internet slang that's become mainstream. Can be used as バズった (past tense) or バズっている (currently viral).",
+				"upvotes": 40,
+				"downvotes": 3,
+				"views": 2147
+			}
+		]
+	},
+	{
+		"id": 5,
+		"word": "晒す",
+		"hiragana": "さらす",
+		"romaji": "sarasu",
+		"meanings": [
+			{
+				"short_translation": "to expose/dox",
+				"detailed_meaning": "To publicly reveal someone's private information, embarrassing content, or secrets online without permission. Often used maliciously to shame or harm someone.",
+				"usage_examples": [
+					{
+						"japanese": "個人情報を晒すのは犯罪だ。",
+						"hiragana": "こじんじょうほうをさらすのははんざいだ。",
+						"romaji": "kojin jōhō wo sarasu no wa hanzai da.",
+						"translation": "Exposing personal information is a crime."
+					},
+					{
+						"japanese": "彼は元カノの写真をネットで晒した。",
+						"hiragana": "かれはもとかのののしゃしんをねっとでさらした。",
+						"romaji": "kare wa moto kano no shashin wo netto de sarashita.",
+						"translation": "He exposed his ex-girlfriend's photos on the internet."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "また誰かのプライベートが晒されてニュースになってる。",
+								"hiragana": "またたれかのぷらいべーとがさらされてにゅーすになってる。",
+								"romaji": "mata dareka no puraibēto ga sarasarete nyūsu ni natteru.",
+								"translation": "Someone's private life has been exposed again and it's become news."
+							},
+							{
+								"speaker": "B",
+								"japanese": "ひどいよね。晒した人は逮捕されるべきだと思う。被害者がかわいそう。",
+								"hiragana": "ひどいよね。さらしたひとはたいほされるべきだとおもう。ひがいしゃがかわいそう。",
+								"romaji": "hidoi yo ne. sarashita hito wa taiho sareru beki da to omou. higaisha ga kawaisō.",
+								"translation": "That's terrible. I think the person who exposed it should be arrested. I feel sorry for the victim."
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "SNSで変なコメントしてる人がいるから、晒してやろうかな。",
+								"hiragana": "えすえぬえすでへんなこめんとしてるひとがいるから、さらしてやろうかな。",
+								"romaji": "SNS de hen na komento shiteru hito ga iru kara, sarashite yarō kana.",
+								"translation": "There's someone making weird comments on SNS, so maybe I should expose them."
+							},
+							{
+								"speaker": "B",
+								"japanese": "それはやめた方がいいよ。自分も問題になるかもしれないし、ブロックするだけでいいんじゃない？",
+								"hiragana": "それはやめたほうがいいよ。じぶんももんだいになるかもしれないし、ぶろっくするだけでいいんじゃない？",
+								"romaji": "sore wa yameta hō ga ii yo. jibun mo mondai ni naru kamoshirenai shi, burokku suru dake de ii n ja nai?",
+								"translation": "You should stop that. You might get in trouble yourself, so wouldn't it be better to just block them?"
+							}
+						]
+					}
+				],
+				"additional_notes": "Originally means 'to expose to air/sun' but in internet context has strong negative connotations. Associated with cyberbullying and online harassment.",
+				"upvotes": 9,
+				"downvotes": 4,
+				"views": 603
+			}
+		]
+	},
+	{
+		"id": 6,
+		"word": "エモい",
+		"hiragana": "えもい",
+		"romaji": "emoi",
+		"meanings": [
+			{
+				"short_translation": "emotional/aesthetic",
+				"detailed_meaning": "Describes something that evokes strong emotions, typically nostalgia, beauty, or sentimentality. Often used for content that has an aesthetic or artistic quality that moves you emotionally.",
+				"usage_examples": [
+					{
+						"japanese": "夕日の写真がめっちゃエモい。",
+						"hiragana": "ゆうひのしゃしんがめっちゃえもい。",
+						"romaji": "yūhi no shashin ga meccha emoi.",
+						"translation": "The sunset photo is really emotional/aesthetic."
+					},
+					{
+						"japanese": "この曲を聞くと学生時代を思い出してエモくなる。",
+						"hiragana": "このきょくをきくとがくせいじだいをおもいだしてえもくなる。",
+						"romaji": "kono kyoku wo kiku to gakusei jidai wo omoidashite emoku naru.",
+						"translation": "When I hear this song, I remember my student days and get emotional."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "この映画のワンシーン、すごくエモいよね。泣きそうになった。",
+								"hiragana": "このえいがのわんしーん、すごくえもいよね。なきそうになった。",
+								"romaji": "kono eiga no wan shīn, sugoku emoi yo ne. naki sō ni natta.",
+								"translation": "This scene in the movie is really emotional, isn't it? I almost cried."
+							},
+							{
+								"speaker": "B",
+								"japanese": "わかる！音楽と映像の組み合わせが完璧で、心に響いた。エモいシーンは印象に残るよね。",
+								"hiragana": "わかる！おんがくとえいぞうのくみあわせがかんぺきで、こころにひびいた。えもいしーんはいんしょうにのこるよね。",
+								"romaji": "wakaru! ongaku to eizō no kumiawase ga kanpeki de, kokoro ni hibiita. emoi shīn wa inshō ni nokoru yo ne.",
+								"translation": "I understand! The combination of music and visuals was perfect and touched my heart. Emotional scenes leave a lasting impression."
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "昔のプリクラが出てきた。髪型と服装が懐かしすぎる。",
+								"hiragana": "むかしのぷりくらがでてきた。かみがたとふくそうがなつかしすぎる。",
+								"romaji": "mukashi no purikura ga dete kita. kamigata to fukusō ga natsukashi sugiru.",
+								"translation": "I found old photo booth pictures. The hairstyles and clothes are so nostalgic."
+							},
+							{
+								"speaker": "B",
+								"japanese": "見せて見せて！えー、エモい！この時代のファッション、今見ると新鮮だね。",
+								"hiragana": "みせてみせて！えー、えもい！このじだいのふぁっしょん、いまみるとしんせんだね。",
+								"romaji": "misete misete! ē, emoi! kono jidai no fasshon, ima miru to shinsen da ne.",
+								"translation": "Show me, show me! Wow, that's so nostalgic/aesthetic! The fashion from that era looks fresh when you see it now."
+							}
+						]
+					}
+				],
+				"additional_notes": "Derived from 'emotional'. Popular among Gen Z and millennials. Can describe anything from music and photos to memories and moments that evoke strong feelings.",
+				"upvotes": 33,
+				"downvotes": 2,
+				"views": 1675
+			}
+		]
+	},
+	{
+		"id": 7,
+		"word": "裏垢",
+		"hiragana": "うらあか",
+		"romaji": "ura aka",
+		"meanings": [
+			{
+				"short_translation": "secret account",
+				"detailed_meaning": "A secondary, private social media account used separately from one's main public account. Often used to share personal thoughts, vent frustrations, or connect with close friends without professional or family oversight.",
+				"usage_examples": [
+					{
+						"japanese": "裏垢では本当の気持ちをつぶやいている。",
+						"hiragana": "うらあかではほんとうのきもちをつぶやいている。",
+						"romaji": "ura aka de wa hontō no kimochi wo tsubuyaite iru.",
+						"translation": "I tweet my true feelings on my secret account."
+					},
+					{
+						"japanese": "裏垢がバレて大変なことになった。",
+						"hiragana": "うらあかがばれてたいへんなことになった。",
+						"romaji": "ura aka ga barete taihen na koto ni natta.",
+						"translation": "My secret account was discovered and it became a big problem."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "最近ストレスがたまってて、愚痴りたいんだけど、メインアカウントでは言えないよね。",
+								"hiragana": "さいきんすとれすがたまってて、ぐちりたいんだけど、めいんあかうんとではいえないよね。",
+								"romaji": "saikin sutoresu ga tamattete, guchiri tai n da kedo, mein akaunto de wa ienai yo ne.",
+								"translation": "I've been stressed lately and want to complain, but I can't say it on my main account."
+							},
+							{
+								"speaker": "B",
+								"japanese": "裏垢作ったら？私も仕事の愚痴は裏垢でつぶやいてる。フォロワーも少ないし、気が楽だよ。",
+								"hiragana": "うらあかつくったら？わたしもしごとのぐちはうらあかでつぶやいてる。ふぉろわーもすくないし、きがらくだよ。",
+								"romaji": "ura aka tsukuttara? watashi mo shigoto no guchi wa ura aka de tsubuyaiteru. forowā mo sukunai shi, ki ga raku da yo.",
+								"translation": "Why don't you make a secret account? I also complain about work on my secret account. There are fewer followers, so it's more relaxing."
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "友達の裏垢を見つけちゃった。知らないふりをするべき？",
+								"hiragana": "ともだちのうらあかをみつけちゃった。しらないふりをするべき？",
+								"romaji": "tomodachi no ura aka wo mitsukechatta. shiranai furi wo suru beki?",
+								"translation": "I found my friend's secret account. Should I pretend I don't know?"
+							},
+							{
+								"speaker": "B",
+								"japanese": "そっとしておいた方がいいと思う。裏垢は秘密にしたいから作ってるわけだし、そっとフォローしてもいいかもしれないけど。",
+								"hiragana": "そっとしておいたほうがいいとおもう。うらあかはひみつにしたいからつくってるわけだし、そっとふぉろーしてもいいかもしれないけど。",
+								"romaji": "sotto shite oita hō ga ii to omou. ura aka wa himitsu ni shitai kara tsukutteru wake da shi, sotto forō shite mo ii kamoshirenai kedo.",
+								"translation": "I think it's better to leave it alone. They made a secret account because they want to keep it secret, though you might quietly follow them."
+							}
+						]
+					}
+				],
+				"additional_notes": "Short for 裏アカウント (ura akaunto). Opposite of 表垢 (omote aka - main account). Common among teenagers and young adults who want privacy.",
+				"upvotes": 27,
+				"downvotes": 1,
+				"views": 1244
+			}
+		]
+	},
+	{
+		"id": 8,
+		"word": "推し",
+		"hiragana": "おし",
+		"romaji": "oshi",
+		"meanings": [
+			{
+				"short_translation": "favorite (idol/character)",
+				"detailed_meaning": "A favorite idol, character, celebrity, or performer that you actively support and promote. Implies a deeper level of dedication than just 'liking' someone - you're actively cheering them on and supporting their success.",
+				"usage_examples": [
+					{
+						"japanese": "私の推しがテレビに出演する。",
+						"hiragana": "わたしのおしがてれびにしゅつえんする。",
+						"romaji": "watashi no oshi ga terebi ni shutsuen suru.",
+						"translation": "My favorite (idol) is appearing on TV."
+					},
+					{
+						"japanese": "推し活にお金を使いすぎた。",
+						"hiragana": "おしかつにおかねをつかいすぎた。",
+						"romaji": "oshikatsu ni okane wo tsukai sugita.",
+						"translation": "I spent too much money on supporting my favorite."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "新しいアニメが始まったから見てみたんだけど、主人公のキャラがすごく魅力的で。",
+								"hiragana": "あたらしいあにめがはじまったからみてみたんだけど、しゅじんこうのきゃらがすごくみりょくてきで。",
+								"romaji": "atarashii anime ga hajimatta kara mite mita n da kedo, shujinkō no kyara ga sugoku miryokuteki de.",
+								"translation": "A new anime started so I tried watching it, and the main character is really attractive."
+							},
+							{
+								"speaker": "B",
+								"japanese": "それ、私も見てる！そのキャラ、私の推しになりそう。グッズとか出たら絶対買う。",
+								"hiragana": "それ、わたしもみてる！そのきゃら、わたしのおしになりそう。ぐっずとかでたらぜったいかう。",
+								"romaji": "sore, watashi mo miteru! sono kyara, watashi no oshi ni narisō. guzzu toka dētara zettai kau.",
+								"translation": "I'm watching that too! That character might become my favorite. If they release merchandise, I'll definitely buy it."
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "今度の推しのコンサート、チケットが取れた！",
+								"hiragana": "こんどのおしのこんさーと、ちけっとがとれた！",
+								"romaji": "kondo no oshi no konsāto, chiketto ga toreta!",
+								"translation": "I got tickets for my favorite's upcoming concert!"
+							},
+							{
+								"speaker": "B",
+								"japanese": "おめでとう！推し活の成果だね。どのくらい並んだの？私も推しのライブに行きたいけど、いつも売り切れちゃう。",
+								"hiragana": "おめでとう！おしかつのせいかだね。どのくらいならんだの？わたしもおしのらいぶにいきたいけど、いつもうりきれちゃう。",
+								"romaji": "omedetō! oshikatsu no seika da ne. dono kurai naranda no? watashi mo oshi no raibu ni ikitai kedo, itsumo urikire chau.",
+								"translation": "Congratulations! That's the result of your fan activities. How long did you wait in line? I want to go to my favorite's live show too, but it's always sold out."
+							}
+						]
+					}
+				],
+				"additional_notes": "From the verb 推す (osu - to push/support). Related terms: 推し活 (oshikatsu - fan activities), 推し変 (oshihen - changing favorites).",
+				"upvotes": 42,
+				"downvotes": 0,
+				"views": 2311
+			}
+		]
+	},
+	{
+		"id": 9,
+		"word": "自撮り",
+		"hiragana": "じどり",
+		"romaji": "jidori",
+		"meanings": [
+			{
+				"short_translation": "selfie",
+				"detailed_meaning": "Taking a photograph of oneself, typically with a smartphone's front camera. Often shared on social media to show current activities, mood, or appearance.",
+				"usage_examples": [
+					{
+						"japanese": "新しい髪型にしたから自撮りを撮った。",
+						"hiragana": "あたらしいかみがたにしたからじどりをとった。",
+						"romaji": "atarashii kamigata ni shita kara jidori wo totta.",
+						"translation": "I got a new hairstyle, so I took a selfie."
+					},
+					{
+						"japanese": "自撮り棒を使って友達と一緒に撮影した。",
+						"hiragana": "じどりぼうをつかってともだちといっしょにさつえいした。",
+						"romaji": "jidoribō wo tsukatte tomodachi to issho ni satsuei shita.",
+						"translation": "I used a selfie stick to take photos with my friends."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "今日のメイク、うまくいったから自撮りしたいんだけど、なかなかいい角度が見つからない。",
+								"hiragana": "きょうのめいく、うまくいったからじどりしたいんだけど、なかなかいいかくどがみつからない。",
+								"romaji": "kyō no meiku, umaku itta kara jidori shitai n da kedo, nakanaka ii kakudo ga mitsukaranai.",
+								"translation": "Today's makeup turned out well so I want to take a selfie, but I can't find a good angle."
+							},
+							{
+								"speaker": "B",
+								"japanese": "少し上から撮ると顔が小さく見えるよ。あと、自然光の方がきれいに写る。窓の近くで撮ってみて。",
+								"hiragana": "すこしうえからとるとかおがちいさくみえるよ。あと、しぜんこうのほうがきれいにうつる。まどのちかくでとってみて。",
+								"romaji": "sukoshi ue kara toru to kao ga chiisaku mieru yo. ato, shizen kō no hō ga kirei ni utsuru. mado no chikaku de totte mite.",
+								"translation": "If you take it from slightly above, your face will look smaller. Also, natural light looks prettier. Try taking it near a window."
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "また自撮りばっかり投稿してる人がいる。毎日同じような写真で飽きない？",
+								"hiragana": "またじどりばっかりとうこうしてるひとがいる。まいにちおなじようなしゃしんであきない？",
+								"romaji": "mata jidori bakkari tōkō shiteru hito ga iru. mainichi onaji yōna shashin de akinai?",
+								"translation": "There's someone posting only selfies again. Don't they get tired of similar photos every day?"
+							},
+							{
+								"speaker": "B",
+								"japanese": "人それぞれだからね。自撮りが好きな人もいるし、自信がついていいことだと思うけど。私はたまにしか撮らないけど。",
+								"hiragana": "ひとそれぞれだからね。じどりがすきなひともいるし、じしんがついていいことだとおもうけど。わたしはたまにしかとらないけど。",
+								"romaji": "hito sorezore da kara ne. jidori ga suki na hito mo iru shi, jishin ga tsuite ii koto da to omou kedo. watashi wa tama ni shika toranai kedo.",
+								"translation": "Everyone's different. Some people like selfies, and I think it's good that it gives them confidence. I only take them occasionally though."
+							}
+						]
+					}
+				],
+				"additional_notes": "Combination of 自分 (jibun - self) and 撮り (tori - taking photos). Now used by all age groups, originally considered youth slang.",
+				"upvotes": 17,
+				"downvotes": 1,
+				"views": 989
+			}
+		]
+	},
+	{
+		"id": 10,
+		"word": "炎上",
+		"hiragana": "えんじょう",
+		"romaji": "enjō",
+		"meanings": [
+			{
+				"short_translation": "online backlash",
+				"detailed_meaning": "When a person or post receives an overwhelming flood of criticism, negative comments, and backlash on social media. Often spreads rapidly and can severely damage someone's reputation or career.",
+				"usage_examples": [
+					{
+						"japanese": "不適切な発言で炎上してしまった。",
+						"hiragana": "ふてきせつなはつげんでえんじょうしてしまった。",
+						"romaji": "futekisetsu na hatsugen de enjō shite shimatta.",
+						"translation": "I faced backlash due to an inappropriate statement."
+					},
+					{
+						"japanese": "炎上を避けるために投稿を削除した。",
+						"hiragana": "えんじょうをさけるためにとうこうをさくじょした。",
+						"romaji": "enjō wo sakeru tame ni tōkō wo sakujo shita.",
+						"translation": "I deleted the post to avoid online backlash."
+					}
+				],
+				"contextual_usage": [
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "あの有名人がまた炎上してるね。今度は何を言ったの？",
+								"hiragana": "あのゆうめいじんがまたえんじょうしてるね。こんどはなにをいったの？",
+								"romaji": "ano yūmeijin ga mata enjō shiteru ne. kondo wa nani wo itta no?",
+								"translation": "That celebrity is facing backlash again. What did they say this time?"
+							},
+							{
+								"speaker": "B",
+								"japanese": "政治的な発言をしたらしい。ファンの間でも意見が分かれてて、すごい数のリプライがついてる。炎上すると収拾がつかなくなるよね。",
+								"hiragana": "せいじてきなはつげんをしたらしい。ふぁんのあいだでもいけんがわかれてて、すごいかずのりぷらいがついてる。えんじょうするとしゅうしゅうがつかなくなるよね。",
+								"romaji": "seijiteki na hatsugen wo shita rashii. fan no aida demo iken ga wakaretete, sugoi kazu no ripurai ga tsuiteru. enjō suru to shūshū ga tsukanaku naru yo ne.",
+								"translation": "Apparently they made a political statement. Even among fans, opinions are divided, and there are an incredible number of replies. When there's backlash, it becomes uncontrollable."
+							}
+						]
+					},
+					{
+						"dialogue": [
+							{
+								"speaker": "A",
+								"japanese": "SNSで発信するときは、炎上しないように気をつけないといけないね。",
+								"hiragana": "えすえぬえすではっしんするときは、えんじょうしないようにきをつけないといけないね。",
+								"romaji": "SNS de hasshin suru toki wa, enjō shinai yō ni ki wo tsukenai to ikenai ne.",
+								"translation": "When posting on social media, we have to be careful not to face backlash."
+							},
+							{
+								"speaker": "B",
+								"japanese": "そうだね。でも、あまり気にしすぎると何も言えなくなっちゃう。常識の範囲内で、自分の意見を言うのは大切だと思うよ。",
+								"hiragana": "そうだね。でも、あまりきにしすぎるとなにもいえなくなっちゃう。じょうしきのはんいないで、じぶんのいけんをいうのはたいせつだとおもうよ。",
+								"romaji": "sō da ne. demo, amari ki ni shi sugiru to nani mo ienaku natchau. jōshiki no han'i nai de, jibun no iken wo iu no wa taisetsu da to omou yo.",
+								"translation": "That's true. But if you worry too much, you won't be able to say anything. I think it's important to express your opinions within the bounds of common sense."
+							}
+						]
+					}
+				],
+				"additional_notes": "Literally means 'catching fire' or 'conflagration'. In internet context, refers to viral negative attention that spreads like wildfire. Very serious phenomenon in Japanese social media culture.",
+				"upvotes": 21,
+				"downvotes": 5,
+				"views": 1502
+			}
+		]
+	}
+]
