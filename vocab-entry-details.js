@@ -7,15 +7,12 @@ import {
 } from "./components.js";
 
 function renderEntryHeader(entryData) {
-	console.table(entryData);
-
 	document.querySelector(".entry-word").innerHTML = entryData.word;
 	document.querySelector(".entry-hiragana").innerHTML = entryData.hiragana;
 	document.querySelector(".entry-romaji").innerHTML = entryData.romaji;
 }
 
 function renderDefinitions(definitions) {
-	console.table(definitions);
 	const definitionList = document.querySelector(".definition-list");
 	for (let i = 0; i < definitions.length; i++) {
 		const div = document.createElement("div");
@@ -38,7 +35,6 @@ function renderDefinitions(definitions) {
 }
 
 function renderExampleSentences(sentences) {
-	console.table(sentences);
 	const exampleSentencesContainer = document.querySelector(
 		".example-sentences-container"
 	);
