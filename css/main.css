@@ -603,7 +603,7 @@ body {
 
 .vocab-set-title {
 	font-size: var(--font-size-lg);
-	font-weight: 500;
+	font-weight: 700;
 	margin-bottom: var(--space-2);
 	color: var(--text-primary);
 }
@@ -718,7 +718,6 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-bottom: var(--space-2);
 }
 
 .entry-word {
@@ -737,6 +736,10 @@ body {
 	font-size: var(--font-size-sm);
 	color: var(--text-secondary);
 	margin-bottom: var(--space-2);
+}
+
+.entry-hiragana {
+	margin-right: var(--space-2);
 }
 
 .entry-romaji {
@@ -771,15 +774,15 @@ body {
 }
 
 .save-note-btn {
-  display: flex;
-  align-items: center;
-  color: var(--surface);
-  font-weight: 800;
-  gap: var(--space-1);
-  background-color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: var(--radius);
-  padding: var(--space-2) var(--space-2);
+	display: flex;
+	align-items: center;
+	color: var(--surface);
+	font-weight: 800;
+	gap: var(--space-1);
+	background-color: var(--primary);
+	border: 1px solid var(--primary);
+	border-radius: var(--radius);
+	padding: var(--space-2) var(--space-2);
 }
 
 /* Entry Metadata */
@@ -830,13 +833,13 @@ body {
 
 /* Page-specific modifications */
 .page-vocab-entry-details .show-more-btn {
-  margin-top: var(--space-4);
-  font-size: var(--font-size-sm);
-  padding: var(--space-3);
+	margin-top: var(--space-4);
+	font-size: var(--font-size-sm);
+	padding: var(--space-3);
 }
 
 /* Entry Header */
-.entry-word {
+.page-vocab-entry-details.entry-word {
 	font-size: var(--font-size-2xl);
 }
 
@@ -931,9 +934,9 @@ body {
 
 /* Entry contextual examples */
 .contextual-usage-examples {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
 }
 
 .dialogue-speaker {
@@ -967,37 +970,148 @@ body {
 
 /* Entry additional notes */
 .additional-notes-text {
-  color: var(--text-secondary);
+	color: var(--text-secondary);
 }
 
-/* Related words */ 
+/* Related words */
 /*TEMP!!!!*/
 .related-words-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-3);
 }
 
 .related-words-btn {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: var(--space-1) var(--space-3);
-  background-color: var(--surface);
-  display: flex;
-  gap: var(--space-1);
-  align-items: center;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: var(--space-1) var(--space-3);
+	background-color: var(--surface);
+	display: flex;
+	gap: var(--space-1);
+	align-items: center;
 }
 
 .related-jp {
-  color: var(--text-primary);
-  font-weight: 500;
+	color: var(--text-primary);
+	font-weight: 500;
 }
 
 .related-hira {
-  color: var(--text-secondary);
+	color: var(--text-secondary);
 }
 .related-mean {
-  color: var(--text-secondary);
+	color: var(--text-secondary);
+}
+
+/* =============================================
+   VOCAB DETAIL PAGE COMPONENTS
+   ============================================= */
+
+/* Page-specific modifications */
+.page-learn .vocab-set-meta {
+	font-size: var(--font-size-base);
+	font-weight: 400;
+}
+
+.set-toggle-btns {
+	display: grid;
+	grid-template-columns: 1fr 1fr auto;
+	gap: var(--space-2);
+}
+
+.set-toggle-btn {
+	padding: var(--space-3);
+	border: 2px solid var(--primary);
+	border-radius: var(--radius-2xl);
+	background-color: var(--surface);
+	color: var(--primary);
+	font-weight: 500;
+}
+
+.set-toggle-btn.active {
+	background-color: var(--primary);
+	color: var(--surface);
+}
+
+.create-set-btn {
+	color: var(--text-primary);
+	background: none;
+	border: 1px solid border;
+	/* border-radius: 100%; */
+}
+
+.vocab-sets-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: var(--space-3);
+}
+
+.delete-btn {
+	background: none;
+	border: none;
+}
+
+/* Progress bar */
+.progress-container {
+	display: flex;
+	justify-content: center;
+	margin-top: var(--space-1);
+	margin-bottom: var(--space-5);
+}
+
+.progress-ring {
+	position: relative;
+	width: 60px;
+	height: 60px;
+}
+
+.progress-svg {
+	transform: rotate(-90deg);
+	width: 100%;
+	height: 100%;
+}
+
+.progress-background {
+	fill: transparent;
+	stroke: #f3f4f6;
+	stroke-width: 6;
+}
+
+.progress-bar {
+	fill: transparent;
+	stroke: var(--primary);
+	stroke-width: 6;
+	stroke-linecap: round;
+	stroke-dasharray: 163.36;
+	stroke-dashoffset: 163.36;
+	transition: stroke-dashoffset var(--transition-slow);
+}
+
+.progress-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-weight: 700;
+	font-size: 1rem;
+	color: var(--primary);
+	text-align: center;
+}
+
+.progress-text svg {
+	width: 20px;
+	height: 20px;
+}
+
+.start-quiz-btn {
+	width: 100%;
+	padding: var(--space-3);
+	border: 1px solid var(--primary);
+	border-radius: var(--radius);
+	color: var(--surface);
+	background-color: var(--primary);
+	font-weight: 600;
+	font-size: var(--font-size-base);
 }
 
 /* =============================================

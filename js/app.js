@@ -1,21 +1,14 @@
 import { CAROUSEL_CONFIG, VOCAB_CONFIG } from "./constants.js";
 import { setupPage } from "./components.js";
 
-// const CAROUSEL_CONFIG = {
-// 	cardWidthPercent: 0.75,
-// 	gap: 16,
-// };
 let carouselInterval;
 let displayVocabSetCount = VOCAB_CONFIG.initialDisplayCount;
 let vocabDataset = [];
 
-
-// Navigation is now handled by components.js
-
 function renderVocabularyGrid() {
 	const vocabGrid = document.getElementById("vocabGrid");
 
-	fetch("vocab.json")
+	fetch("../data/vocab.json")
 		.then((res) => res.json())
 		.then((data) => {
 			vocabDataset = data;
@@ -38,15 +31,14 @@ function renderVocabularyGrid() {
 				)
 				.join("");
 
-			const vocabCards = document.querySelectorAll('.vocab-set-card');
-			vocabCards.forEach(card => {
+			const vocabCards = document.querySelectorAll(".vocab-set-card");
+			vocabCards.forEach((card) => {
 				card.addEventListener("click", () => {
 					const vocabSetId = card.dataset.vocabSetId;
-					const vocabSetTitle = card.dataset.vocabSetTitle
+					const vocabSetTitle = card.dataset.vocabSetTitle;
 					navigateToVocabSetDetails(vocabSetId, vocabSetTitle);
-				})
-			})
-			
+				});
+			});
 		})
 		.catch((error) => console.error("Error fetching vocabulary sets: ", error));
 }
@@ -54,7 +46,7 @@ function renderVocabularyGrid() {
 function renderWordsOfTheWeek() {
 	const carousel = document.getElementById("carouselCardsContainer");
 
-	fetch("words.json")
+	fetch("../data/words.json")
 		.then((res) => res.json())
 		.then((data) => {
 			carousel.innerHTML = data
@@ -77,7 +69,9 @@ function renderWordsOfTheWeek() {
 }
 
 function navigateToVocabSetDetails(vocabId, vocabSetTitle) {
-	window.location.href = `vocab-set-details.html?id=${vocabId}&title=${encodeURIComponent(vocabSetTitle)}`;
+	window.location.href = `vocab-set-details.html?id=${vocabId}&title=${encodeURIComponent(
+		vocabSetTitle
+	)}`;
 }
 
 function scrollToCard(cardIndex, carousel) {
@@ -203,8 +197,8 @@ function loadMoreVocabSets() {
 
 document.addEventListener("DOMContentLoaded", () => {
 	// Set up page with header and navigation
-	setupPage('Home');
-	
+	setupPage("Home");
+
 	// Initialize page content
 	renderWordsOfTheWeek();
 	renderVocabularyGrid();

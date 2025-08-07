@@ -1,12 +1,13 @@
 import {
 	setupPage,
 	createTagsList,
-	updateActive,
-	createPagination,
+	renderPaginationComponent,
+	initializePagination,
 } from "./components.js";
 import { VOCAB_CONFIG } from "./constants.js";
 
 function renderHeader(vocabSetData) {
+	console.table(vocabSetData);
 	const img = document.querySelector(".vocab-set-image");
 	const title = document.querySelector(".vocab-set-title");
 	const entries = document.querySelector(".vocab-set-entries");
@@ -27,14 +28,13 @@ function renderVocabSetTags(tagsList) {
 
 function renderVocabSetGrid(vocabSetData, currentPage = 1) {
 	const vocabGrid = document.querySelector(".vocab-list-grid");
-	const itemsPerPage = VOCAB_CONFIG.initialDisplayCount;
+	vocabGrid.innerHTML = ""; // reset
 
+
+	const itemsPerPage = VOCAB_CONFIG.itemsPerPage;
 	const startIndex = (currentPage - 1) * itemsPerPage;
 	const endIndex = startIndex + itemsPerPage;
-
 	const itemsToDisplay = vocabSetData.slice(startIndex, endIndex);
-
-	vocabGrid.innerHTML = "";
 
 	itemsToDisplay.forEach((entry) => {
 		const card = document.createElement("div");
@@ -47,7 +47,7 @@ function renderVocabSetGrid(vocabSetData, currentPage = 1) {
 
 		card.innerHTML = `
             <div class="entry-header">
-                <h2 class="entry-word">${entry.word}</h2><span class="entry-hiragana">【${entry.hiragana}】</span>
+                <h2 class="entry-word">${entry.word}</h2>
                 <div class="action-btns">
                     <button class="action-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
@@ -75,7 +75,7 @@ function renderVocabSetGrid(vocabSetData, currentPage = 1) {
                     </button>
                 </div>
             </div>
-            
+            <span class="entry-hiragana">(${entry.hiragana})</span>
             <span class="entry-romaji">${entry.romaji}</span>
             <p class="entry-meaning">${entry.meanings[0].translation}</p>
 
@@ -111,89 +111,6 @@ function renderVocabSetGrid(vocabSetData, currentPage = 1) {
 	});
 }
 
-function renderPagination(numItems) {
-	const paginationDiv = document.querySelector(".pagination");
-	paginationDiv.innerHTML = createPagination(
-		numItems,
-		VOCAB_CONFIG.initialDisplayCount,
-		VOCAB_CONFIG.pagesToDisplay
-	);
-}
-
-function initializePaginationEvents(vocabData) {
-	const prevBtn = document.querySelector(".prev-btn");
-	const nextBtn = document.querySelector(".next-btn");
-	const pageButtons = document.querySelectorAll(".page-btn");
-
-	// Add click listeners to page buttons
-	pageButtons.forEach((btn) => {
-		btn.addEventListener("click", () => {
-			const pageNumber = parseInt(btn.dataset.page);
-
-			document.querySelector(".page-btn.active").classList.remove("active");
-			btn.classList.add("active");
-
-			if (prevBtn && nextBtn) {
-				updatePrevNextButtons();
-			}
-
-			renderVocabSetGrid(vocabData, pageNumber);
-		});
-	});
-
-	// prev & next button listener if needed
-	if (nextBtn && prevBtn) {
-		prevBtn.addEventListener("click", () => {
-			const currentActive = document.querySelector(".page-btn.active");
-			const currentIndex = parseInt(currentActive.dataset.page);
-			const prevPage = document.querySelector(
-				`[data-page="${currentIndex - 1}"]`
-			);
-
-			if (prevPage) {
-				updateActive(currentActive, prevPage);
-				updatePrevNextButtons();
-				renderVocabSetGrid(vocabData, currentIndex - 1);
-			}
-		});
-
-		// Next button listener
-		nextBtn.addEventListener("click", () => {
-			const currentActive = document.querySelector(".page-btn.active");
-			const currentIndex = parseInt(currentActive.dataset.page);
-			const nextPage = document.querySelector(
-				`[data-page="${currentIndex + 1}"]`
-			);
-
-			if (nextPage) {
-				updateActivePage(currentActive, nextPage);
-				updatePrevNextButtons();
-				renderVocabSetGrid(vocabData, currentIndex + 1);
-			}
-		});
-	}
-}
-
-function updatePrevNextButtons() {
-	const prevBtn = document.querySelector(".prev-btn");
-	const nextBtn = document.querySelector(".next-btn");
-	const currentActive = document.querySelector(".page-btn.active");
-	const currentIndex = parseInt(currentActive.dataset.page);
-	const totalPages = document.querySelectorAll(".page-btn").length;
-
-	if (currentIndex === 1) {
-		prevBtn.classList.add("disabled");
-	} else {
-		prevBtn.classList.remove("disabled");
-	}
-
-	if (currentIndex === totalPages) {
-		nextBtn.classList.add("disabled");
-	} else {
-		nextBtn.classList.remove("disabled");
-	}
-}
-
 document.addEventListener("DOMContentLoaded", () => {
 	const urlParams = new URLSearchParams(window.location.search);
 	const vocabId = urlParams.get("id");
@@ -201,15 +118,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	setupPage("home", pageTitle);
 
 	// TODO:: replace with db code
-	fetch("vocab.json")
+	fetch("../data/vocab.json")
 		.then((res) => res.json())
 		.then((vocabSets) => {
 			const currentVocabSet = vocabSets.find((set) => set.id === vocabId);
 
 			if (currentVocabSet) {
 				renderHeader(currentVocabSet);
-				// renderVocabSetGrid(currentVocabSet);
-				console.table(currentVocabSet);
 			} else {
 				console.error(`Vocabulary set with id ${vocabId} not found.`);
 			}
@@ -221,12 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	// temp
 	renderVocabSetTags(["beginner", "common", "slang"]);
 
-	fetch("sns_essentials.json")
+	fetch("../data/sns_essentials.json")
 		.then((res) => res.json())
 		.then((vocabEntries) => {
-			console.table(vocabEntries);
 			renderVocabSetGrid(vocabEntries);
-			renderPagination(vocabEntries.length);
-			initializePaginationEvents(vocabEntries);
+
+			renderPaginationComponent(vocabEntries.length, VOCAB_CONFIG.itemsPerPage, VOCAB_CONFIG.maxPagesToDisplay);
+			initializePagination(vocabEntries, renderVocabSetGrid);
 		});
 });

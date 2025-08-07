@@ -2,6 +2,7 @@ import {
 	setupPage,
 	createRatingButtons,
 	createSeparator,
+	createBackButton,
 	updateActive,
 } from "./components.js";
 
@@ -17,7 +18,7 @@ function renderDefinitions(definitions) {
 	const definitionList = document.querySelector(".definition-list");
 	for (let i = 0; i < definitions.length; i++) {
 		const div = document.createElement("div");
-		div.classList.add("definition-item");
+		div.classList.add("definition-item");1
 
 		if (i > 0) {
 			definitionList.appendChild(createSeparator());
@@ -139,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	setupPage("home", " - Entry Details");
 	initializeToggleButtons();
 
-	fetch("enhanced_sns_vocab.json")
+	fetch("../data/enhanced_sns_vocab.json")
 		.then((res) => res.json())
 		.then((data) => {
 			const sampleData = data[0];

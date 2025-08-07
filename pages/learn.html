@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../css/main.css" />
+	</head>
+	<body class="page-learn">
+		<div class="app">
+			<main class="main">
+				<section class="section">
+					<!-- User stats -->
+					<div class="stats-grid">
+						<div class="stat-card">
+							<div class="stat-icon">🔥</div>
+							<div class="stat-number" id="dayStreak">99</div>
+							<div class="stat-label">DAYS STREAK</div>
+						</div>
+
+						<div class="stat-card">
+							<div class="stat-icon">✓</div>
+							<div class="stat-number" id="quizzesDone">99</div>
+							<div class="stat-label">QUIZZES DONE</div>
+						</div>
+
+						<div class="stat-card">
+							<div class="stat-icon">🎯</div>
+							<div class="stat-number" id="avgScore">99</div>
+							<div class="stat-label">AVG SCORE</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Pre-made Sets, Custom Sets, Create New Buttons -->
+				<section class="section">
+					<div class="set-toggle-btns">
+						<button class="set-toggle-btn active">Pre-made Sets</button>
+						<button class="set-toggle-btn">Custom Sets</button>
+						<button class="create-set-btn">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								viewBox="0 0 24 24"
+							>
+								<line x1="12" y1="5" x2="12" y2="19" />
+								<line x1="5" y1="12" x2="19" y2="12" />
+							</svg>
+						</button>
+					</div>
+				</section>
+
+				<!-- Vocab Sets List -->
+				<section class="section">
+					<div class="vocab-sets-grid"></div>
+				</section>
+
+				<!-- Pagination -->
+				<section class="section">
+					<div class="pagination"></div>
+				</section>
+			</main>
+		</div>
+
+		<script type="module" src="../js/learn.js"></script>
+	</body>
+</html>
