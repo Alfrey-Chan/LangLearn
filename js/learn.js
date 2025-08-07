@@ -109,7 +109,7 @@ function renderVocabSetGrid(vocabSets, currentPage = 1) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	setupPage("Learn", "Learn");
+	setupPage("learn", "Learn");
 	createBottomNav();
 
 	fetch("../data/vocab.json")

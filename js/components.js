@@ -81,7 +81,7 @@ export function createTagsList(tagsList) {
 	return allTagsHTML;
 }
 
-export function createPagination(numItems, itemsPerPage, numPagesDisplay) {
+function createPagination(numItems, itemsPerPage, numPagesDisplay) {
 	let paginationHTML = "";
 	let pagesHTML = "";
 	const numPages = Math.ceil(numItems / itemsPerPage);
@@ -131,7 +131,11 @@ export function updateActive(currentActive, newActive) {
 	newActive.classList.add("active");
 }
 
-export function initializePagination(data, renderFunction, initializeFunction = null) {
+export function initializePagination(
+	data,
+	renderFunction,
+	initializeFunction = null
+) {
 	const pageButtons = document.querySelectorAll(".page-btn");
 	const prevBtn = document.querySelector(".prev-btn");
 	const nextBtn = document.querySelector(".next-btn");
@@ -189,7 +193,7 @@ export function initializePagination(data, renderFunction, initializeFunction = 
 	updatePaginationButtons();
 }
 
-export function updatePaginationButtons() {
+function updatePaginationButtons() {
 	const prevBtn = document.querySelector(".prev-btn");
 	const nextBtn = document.querySelector(".next-btn");
 	const currentActive = document.querySelector(".page-btn.active");
@@ -275,7 +279,8 @@ export function initializeBottomNavigation() {
 			btn.classList.add("active");
 
 			// Here you can add navigation logic
-			const page = btn.dataset.page;
+			const page = btn.dataset.page + ".html";
+			window.location.assign(page);
 			console.log(`Navigating to: ${page}`);
 
 			// For now, just log. Later you can add actual navigation
