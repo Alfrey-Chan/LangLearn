@@ -197,7 +197,7 @@ function loadMoreVocabSets() {
 
 document.addEventListener("DOMContentLoaded", () => {
 	// Set up page with header and navigation
-	setupPage("Home");
+	setupPage("home");
 
 	// Initialize page content
 	renderWordsOfTheWeek();

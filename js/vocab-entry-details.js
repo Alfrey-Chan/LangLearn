@@ -5,20 +5,26 @@ import {
 	createBackButton,
 	updateActive,
 } from "./components.js";
+import { fetchData, callApi } from "./constants.js";
 
 function renderEntryHeader(entryData) {
-	document.querySelector(".entry-word").innerHTML = entryData.word;
+	document.querySelector(".entry-word").innerHTML = entryData["word"];
 	document.querySelector(
 		".entry-hiragana"
-	).innerHTML = `(${entryData.hiragana})`;
-	document.querySelector(".entry-romaji").innerHTML = entryData.romaji;
+	).innerHTML = `(${entryData["hiragana"]})`;
+	document.querySelector(".entry-romaji").innerHTML = entryData["romaji"];
 }
 
 function renderDefinitions(definitions) {
+	// console.table("")
+	definitions = JSON.parse(definitions);
+	// console.log("definitions type:", typeof definitions);
+	// console.log("definitions length:", definitions?.length);
+	// console.log("first item keys:", Object.keys(definitions[0] || {}));
 	const definitionList = document.querySelector(".definition-list");
 	for (let i = 0; i < definitions.length; i++) {
 		const div = document.createElement("div");
-		div.classList.add("definition-item");1
+		div.classList.add("definition-item");
 
 		if (i > 0) {
 			definitionList.appendChild(createSeparator());
@@ -26,10 +32,8 @@ function renderDefinitions(definitions) {
 
 		const definitionHTML = `
             <span class="definition-number">${i + 1}.</span>
-            <span class="definition-short">${
-							definitions[i].short_translation
-						}</span>
-            <p class="definition-detail">${definitions[i].detailed_meaning}</p>
+            <span class="definition-short">${definitions[i]["short"]}</span>
+            <p class="definition-detail">${definitions[i]["long"]}</p>
         `;
 		div.innerHTML = definitionHTML;
 		definitionList.appendChild(div);
@@ -37,25 +41,32 @@ function renderDefinitions(definitions) {
 }
 
 function renderExampleSentences(sentences) {
-	const exampleSentencesContainer = document.querySelector(
+	const sentencesContainer = document.querySelector(
 		".example-sentences-container"
 	);
 
 	for (let i = 0; i < sentences.length; i++) {
+		const sentenceId = sentences[i]["id"];
+		const upvotes = sentences[i]["upvotes"];
+		const downvotes = sentences[i]["downvotes"];
+		const exampleType = "sentence";
+		const textData = JSON.parse(sentences[i]["sentence_data"]);
+
 		const div = document.createElement("div");
 		div.classList.add("card");
 		div.dataset.index = i;
 
-		const ratingBtns = createRatingButtons();
-		const exampleSentenceHTML = `
-            <p class="example-japanese">${sentences[i].japanese}</p>
-            <p class="example-hiragana">${sentences[i].hiragana}</p>
-            <p class="example-romaji">${sentences[i].romaji}</p>
-            <p class="example-translation">${sentences[i].translation}</p>
+		const ratingBtns = createRatingButtons(sentenceId, exampleType, upvotes, downvotes);
+
+		const sentenceHTML = `
+            <p class="example-japanese">${textData["example"]}</p>
+            <p class="example-hiragana">${textData["translation"]["hiragana"]}</p>
+            <p class="example-romaji">${textData["translation"]["romaji"]}</p>
+            <p class="example-translation">${textData["translation"]["translation"]}</p>
             ${ratingBtns}
         `;
-		div.innerHTML = exampleSentenceHTML;
-		exampleSentencesContainer.appendChild(div);
+		div.innerHTML = sentenceHTML;
+		sentencesContainer.appendChild(div);
 	}
 }
 
@@ -88,8 +99,58 @@ function renderContextualUsageExamples(contextualExamples) {
 }
 
 function renderAdditionalNotes(additionalNotes) {
-    console.table(additionalNotes);
-    document.querySelector(".additional-notes-text").innerHTML = additionalNotes;
+	console.table(additionalNotes);
+	document.querySelector(".additional-notes-text").innerHTML = additionalNotes;
+}
+
+function updateRatingDisplay(result) {
+	const id = result["id"];
+	const upvotes = result["upvotes"];
+	const downvotes = result["downvotes"];
+
+	const upvoteBtn = document.querySelector(
+		`[data-action="upvote"][data-id="${id}"]`
+	);
+	const downvoteBtn = document.querySelector(
+		`[data-action="downvote"][data-id="${id}"]`
+	);
+	const upvoteSpan = upvoteBtn.querySelector(".rating-count");
+	const downvoteSpan = downvoteBtn.querySelector(".rating-count");
+
+	if (upvoteBtn && downvoteBtn && upvoteSpan && downvoteSpan) {
+		upvoteSpan.textContent = upvotes;
+		downvoteSpan.textContent = downvotes;
+	}
+}
+
+function initializeRatingButtons() {
+	document.addEventListener("click", async (e) => {
+		const btn = e.target.closest(".rating-btn");
+		if (!btn) return;
+
+		const isUpvote = btn.dataset.action === "upvote" ? true : false; // 'upvote' or 'downvote'
+		const sentenceId = btn.dataset.id;
+		const exampleType = btn.dataset.type;
+
+		try {
+			const result = await callApi(
+				`/vocabulary-entries/${sentenceId}/vote-example`,
+				{
+					method: "POST",
+					data: {
+						user_id: "test123",
+						example_id: parseInt(sentenceId),
+						example_type: exampleType,
+						is_upvote: isUpvote,
+					},
+				}
+			);
+
+			updateRatingDisplay(result["example"]);
+		} catch (err) {
+			console.error("Failed to update rating: ", err);
+		}
+	});
 }
 
 function initializeToggleButtons() {
@@ -134,24 +195,37 @@ function handleTabSwitch(tabType, section) {
 		.forEach((el) => (el.style.display = "block"));
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 	const urlParams = new URLSearchParams(window.location.search);
-	const vocabId = urlParams.get("id");
+	const entryId = urlParams.get("id");
 	setupPage("home", " - Entry Details");
 	initializeToggleButtons();
 
-	fetch("../data/enhanced_sns_vocab.json")
-		.then((res) => res.json())
-		.then((data) => {
-			const sampleData = data[0];
-			const definitions = sampleData.meanings;
-			const exampleSentences = sampleData.meanings[0].usage_examples;
-			const contextualExamples = sampleData.meanings[0].contextual_usage;
-            const additionalNotes = sampleData.meanings[0].additional_notes;
-			renderEntryHeader(sampleData);
-			renderDefinitions(definitions);
-			renderExampleSentences(exampleSentences);
-			renderContextualUsageExamples(contextualExamples);
-            renderAdditionalNotes(additionalNotes);
-		});
+	try {
+		const data = await fetchData(`/vocabulary-entries/${entryId}`);
+		const definitions = data["meanings"];
+		const sentenceExamples = data["sentence_examples"];
+		const dialogueExamples = data["dialogue_examples"];
+
+		renderEntryHeader(data);
+		renderDefinitions(definitions);
+		renderExampleSentences(sentenceExamples);
+		initializeRatingButtons();
+	} catch (err) {
+		console.error("Error fetching data: ", err);
+	}
+
+	// fetch(`http://127.0.0.1:8000/api` )
+	// 	.then((res) => res.json())
+	// 	.then((data) => {
+	// 		// console.table(data);
+	// 		// const sampleData = data[0];
+	// 		// const definitions = sampleData.meanings;
+	// 		// const exampleSentences = sampleData.meanings[0].usage_examples;
+	// 		// const contextualExamples = sampleData.meanings[0].contextual_usage;
+	// 		// const additionalNotes = sampleData.meanings[0].additional_notes;
+
+	// 		// renderContextualUsageExamples(contextualExamples);
+	// 		// renderAdditionalNotes(additionalNotes);
+	// 	});
 });

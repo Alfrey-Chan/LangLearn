@@ -6,19 +6,18 @@ import {
 } from "./components.js";
 import { VOCAB_CONFIG } from "./constants.js";
 
-function renderHeader(vocabSetData) {
-	console.table(vocabSetData);
+function renderHeader(data) {
 	const img = document.querySelector(".vocab-set-image");
 	const title = document.querySelector(".vocab-set-title");
 	const entries = document.querySelector(".vocab-set-entries");
 	const views = document.querySelector(".view-count");
 	const rating = document.querySelector(".vocab-set-rating");
 
-	img.src = vocabSetData.image;
-	title.textContent = vocabSetData.title;
-	rating.innerHTML += ` ${vocabSetData.rating}`;
-	entries.textContent = vocabSetData.entries + " entries";
-	views.textContent = vocabSetData.views + " views";
+	img.src = data["image_url"];
+	title.textContent = data["title"];
+	rating.innerHTML += ` ${data["rating"]}`;
+	entries.textContent = data["vocabulary_entries"].length + " entries";
+	views.textContent = data.views + " views";
 }
 
 function renderVocabSetTags(tagsList) {
@@ -30,7 +29,6 @@ function renderVocabSetGrid(vocabSetData, currentPage = 1) {
 	const vocabGrid = document.querySelector(".vocab-list-grid");
 	vocabGrid.innerHTML = ""; // reset
 
-
 	const itemsPerPage = VOCAB_CONFIG.itemsPerPage;
 	const startIndex = (currentPage - 1) * itemsPerPage;
 	const endIndex = startIndex + itemsPerPage;
@@ -40,10 +38,10 @@ function renderVocabSetGrid(vocabSetData, currentPage = 1) {
 		const card = document.createElement("div");
 		card.classList.add("entry-card");
 
-        card.addEventListener("click", () => {
-            const entryId = entry.id;
+		card.addEventListener("click", () => {
+			const entryId = entry.id;
 			window.location.href = `vocab-entry-details.html?id=${entryId}`;
-        })
+		});
 
 		card.innerHTML = `
             <div class="entry-header">
@@ -113,35 +111,30 @@ function renderVocabSetGrid(vocabSetData, currentPage = 1) {
 
 document.addEventListener("DOMContentLoaded", () => {
 	const urlParams = new URLSearchParams(window.location.search);
-	const vocabId = urlParams.get("id");
+	const vocabSetId = urlParams.get("id");
 	const pageTitle = urlParams.get("title");
 	setupPage("home", pageTitle);
 
-	// TODO:: replace with db code
-	fetch("../data/vocab.json")
+	fetch("http://127.0.0.1:8000/api/vocabulary-sets/1")
 		.then((res) => res.json())
-		.then((vocabSets) => {
-			const currentVocabSet = vocabSets.find((set) => set.id === vocabId);
+		.then((data) => {
+			if (data) {
+				const entries = data["vocabulary_entries"];
 
-			if (currentVocabSet) {
-				renderHeader(currentVocabSet);
+				renderHeader(data);
+				renderVocabSetTags(["beginner", "common", "slang"]);
+				renderVocabSetGrid(entries);
+				renderPaginationComponent(
+					entries.length,
+					VOCAB_CONFIG.itemsPerPage,
+					VOCAB_CONFIG.maxPagesToDisplay
+				);
+				initializePagination(entries, renderVocabSetGrid);
 			} else {
-				console.error(`Vocabulary set with id ${vocabId} not found.`);
+				console.error(`Vocabulary set with id ${vocabSetId} not found.`);
 			}
 		})
 		.catch((error) => {
-			console.error(`Error loading vocab set ${vocabId}: `, error);
-		});
-
-	// temp
-	renderVocabSetTags(["beginner", "common", "slang"]);
-
-	fetch("../data/sns_essentials.json")
-		.then((res) => res.json())
-		.then((vocabEntries) => {
-			renderVocabSetGrid(vocabEntries);
-
-			renderPaginationComponent(vocabEntries.length, VOCAB_CONFIG.itemsPerPage, VOCAB_CONFIG.maxPagesToDisplay);
-			initializePagination(vocabEntries, renderVocabSetGrid);
+			console.error(`Error loading vocab set ${vocabSetId}: `, error);
 		});
 });
