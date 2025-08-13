@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const urlParams = new URLSearchParams(window.location.search);
 	const vocabSetId = urlParams.get("id");
 	const pageTitle = urlParams.get("title");
-	setupPage("home", pageTitle);
+	setupPage("vocabulary-set", pageTitle);
 
 	fetch("http://127.0.0.1:8000/api/vocabulary-sets/1")
 		.then((res) => res.json())

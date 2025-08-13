@@ -1,9 +1,25 @@
 // Reusable UI components for LangLearn app
 
-export function createHeader(title = "LangLearn", showMenu = false) {
+export function createHeader(
+	showMenu = false,
+	showBackBtn
+) {
 	return `
         <header class="header">
-            <h1 class="header-title">LangLearn</h1>
+			${
+				showBackBtn
+					? `
+					<button class="back-button" onclick="history.back()">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+							<path d="M19 12H5M12 19l-7-7 7-7"/>
+						</svg>
+					</button>
+				`
+					: ""
+			}
+			
+			<h1 class="header-title">LangLearn</h1>
+			
             ${
 							showMenu
 								? `
@@ -238,7 +254,12 @@ export function createBackButton(text = "Back") {
     `;
 }
 
-export function createRatingButtons(exampleId, exampleType, upvotes, downvotes) {
+export function createRatingButtons(
+	exampleId,
+	exampleType,
+	upvotes,
+	downvotes
+) {
 	return `
 		<div class="ratings">
             <button class="rating-btn" data-action="upvote" data-id=${exampleId} data-type=${exampleType}>
@@ -291,11 +312,16 @@ export function initializeBottomNavigation() {
 
 // Convenience function to set up any page with header and navigation
 export function setupPage(activePage, pageTitle) {
+	const mainPages = ["home", "learn", "explore", "quiz"];
+	const showBackBtn = !mainPages.includes(activePage.toLowerCase());
 	const app = document.querySelector(".app");
 	document.title = pageTitle + " - LangLearn";
 
 	// Insert header and navigation
-	app.insertAdjacentHTML("afterbegin", createHeader(pageTitle));
+	app.insertAdjacentHTML(
+		"afterbegin",
+		createHeader(false, showBackBtn)
+	);
 	app.insertAdjacentHTML("beforeend", createBottomNav(activePage));
 
 	// Initialize navigation functionality

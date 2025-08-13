@@ -313,10 +313,10 @@ body {
 	background-color: var(--surface);
 }
 
-.card:hover {
+/* .card:hover {
 	box-shadow: var(--shadow);
 	transform: translateY(-2px);
-}
+} */
 
 .separator {
 	border-top: 1px solid #e5e7eb;
@@ -426,6 +426,24 @@ body {
 	font-size: var(--font-size-sm);
 	padding: var(--space-4);
 	border-bottom: 1px solid var(--border);
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+
+}
+
+.back-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: none;
+	border: none;
+	color: var(--primary);
+	padding: var(--space-1);
+	transition: background-color 0.2s;
+	cursor: pointer;
+	min-width: 44px;
+	min-height: 44px;
 }
 
 /* Bottom Navigation */
