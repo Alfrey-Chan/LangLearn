@@ -42,7 +42,8 @@ function renderVocabSetGrid(vocabSetData, currentPage = 1) {
 			const entryId = entry.id;
 			window.location.href = `vocab-entry-details.html?id=${entryId}`;
 		});
-
+		const x = JSON.parse(entry.meanings);
+		console.log(x[0].short);
 		card.innerHTML = `
             <div class="entry-header">
                 <h2 class="entry-word">${entry.word}</h2>
@@ -75,7 +76,7 @@ function renderVocabSetGrid(vocabSetData, currentPage = 1) {
             </div>
             <span class="entry-hiragana">(${entry.hiragana})</span>
             <span class="entry-romaji">${entry.romaji}</span>
-            <p class="entry-meaning">${entry.meanings[0].translation}</p>
+            <p class="entry-meaning">${JSON.parse(entry.meanings)[0].short}</p>
 
             <div class="entry-meta">
                 <span class="entry-views">
@@ -100,27 +101,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 	try {
 		const data = await callApi(`/vocabulary-sets/1`);
 		const entries = data["vocabulary_entries"];
-
-				renderHeader(data);
-				renderVocabSetTags(["beginner", "common", "slang"]);
-				renderVocabSetGrid(entries);
-				renderPaginationComponent(
-					entries.length,
-					VOCAB_CONFIG.itemsPerPage,
-					VOCAB_CONFIG.maxPagesToDisplay
-				);
-				initializePagination(entries, renderVocabSetGrid);
+		console.table(entries);
+		renderHeader(data);
+		renderVocabSetTags(["beginner", "common", "slang"]);
+		renderVocabSetGrid(entries);
+		renderPaginationComponent(
+			entries.length,
+			VOCAB_CONFIG.itemsPerPage,
+			VOCAB_CONFIG.maxPagesToDisplay
+		);
+		initializePagination(entries, renderVocabSetGrid);
 	} catch (err) {
-			console.error(`Error loading vocab set ${vocabSetId}: `, err);
-	};
-	// fetch("http://127.0.0.1:8000/api/vocabulary-sets/1")
-	// 	.then((res) => res.json())
-	// 	.then((data) => {
-	// 		if (data) {
-				
-	// 		} else {
-	// 			console.error(`Vocabulary set with id ${vocabSetId} not found.`);
-	// 		}
-	// 	})
-		
+		console.error(`Error loading vocab set ${vocabSetId}: `, err);
+	}
 });

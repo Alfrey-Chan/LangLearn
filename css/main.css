@@ -624,6 +624,8 @@ body {
 
 .vocab-set-image {
 	width: 100%;
+	object-fit: cover; /* maintain aspect ratio while cropping */ 
+	aspect-ratio: 16/9;
 	border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
@@ -763,7 +765,7 @@ body {
 
 .entry-hiragana,
 .entry-romaji {
-	font-size: var(--font-size-sm);
+	font-size: var(--font-size-xs);
 	color: var(--text-secondary);
 	margin-bottom: var(--space-2);
 }
@@ -778,7 +780,8 @@ body {
 
 .entry-meaning {
 	color: var(--text-primary);
-	margin-bottom: var(--space-3);
+	margin: var(--space-1) 0;
+	font-weight: 500;
 }
 
 /* Action Buttons */

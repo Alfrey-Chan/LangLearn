@@ -1,46 +1,38 @@
-import { CAROUSEL_CONFIG, VOCAB_CONFIG } from "./constants.js";
+import { CAROUSEL_CONFIG, VOCAB_CONFIG, callApi } from "./constants.js";
 import { setupPage } from "./components.js";
 
 let carouselInterval;
 let displayVocabSetCount = VOCAB_CONFIG.initialDisplayCount;
 let vocabDataset = [];
 
-function renderVocabularyGrid() {
+function renderVocabularyGrid(data) {
 	const vocabGrid = document.getElementById("vocabGrid");
 
-	fetch("../data/vocab.json")
-		.then((res) => res.json())
-		.then((data) => {
-			vocabDataset = data;
+	vocabGrid.innerHTML = data
+		.map(
+			(set) => `
+		<div class="vocab-set-card" data-vocab-set-id="${set.id}" data-vocab-set-title="${set.title}">
+            <img class="vocab-set-image" src="${set.image_url}" alt="vocabulary set image">
+            <div class="vocab-content">
+				<h3 class="vocab-set-title">${set.title}</h3>
+				<div class="vocab-set-meta">
+					<span>${set.vocabulary_entries_count} entries</span>
+					<p class="vocab-set-rating"><span class="star">★</span> ${set.rating}</p>
+				</div>
+			</div>
+        </div>
+	`
+		)
+		.join("");
 
-			vocabGrid.innerHTML = vocabDataset
-				.slice(0, displayVocabSetCount)
-				.map(
-					(set) => `
-                <div class="vocab-set-card" data-vocab-set-id="${set.id}" data-vocab-set-title="${set.title}">
-                    <img class="vocab-set-image" src="${set.image}" alt="vocabulary set image">
-                    <div class="vocab-content">
-						<h3 class="vocab-set-title">${set.title}</h3>
-						<div class="vocab-set-meta">
-							<span>${set.entries} entries</span>
-							<p class="vocab-set-rating"><span class="star">★</span> ${set.rating}</p>
-						</div>
-					</div>
-                </div>
-            `
-				)
-				.join("");
-
-			const vocabCards = document.querySelectorAll(".vocab-set-card");
-			vocabCards.forEach((card) => {
-				card.addEventListener("click", () => {
-					const vocabSetId = card.dataset.vocabSetId;
-					const vocabSetTitle = card.dataset.vocabSetTitle;
-					navigateToVocabSetDetails(vocabSetId, vocabSetTitle);
-				});
-			});
-		})
-		.catch((error) => console.error("Error fetching vocabulary sets: ", error));
+	const vocabCards = document.querySelectorAll(".vocab-set-card");
+	vocabCards.forEach((card) => {
+		card.addEventListener("click", () => {
+			const vocabSetId = card.dataset.vocabSetId;
+			const vocabSetTitle = card.dataset.vocabSetTitle;
+			navigateToVocabSetDetails(vocabSetId, vocabSetTitle);
+		});
+	});
 }
 
 function renderWordsOfTheWeek() {
@@ -184,27 +176,33 @@ function createCarouselDot(index, carousel, data) {
 	return dot;
 }
 
-function loadMoreVocabSets() {
-	const showMoreBtn = document.getElementById("showMoreBtn");
+// function loadMoreVocabSets() {
+// 	const showMoreBtn = document.getElementById("showMoreBtn");
 
-	displayVocabSetCount += VOCAB_CONFIG.loadMoreIncrement;
-	if (displayVocabSetCount >= vocabDataset.length) {
-		showMoreBtn.classList.add("hidden");
-	}
+// 	displayVocabSetCount += VOCAB_CONFIG.loadMoreIncrement;
+// 	if (displayVocabSetCount >= vocabDataset.length) {
+// 		showMoreBtn.classList.add("hidden");
+// 	}
 
-	renderVocabularyGrid();
-}
+// 	renderVocabularyGrid();
+// }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 	// Set up page with header and navigation
 	setupPage("home");
 
 	// Initialize page content
-	renderWordsOfTheWeek();
-	renderVocabularyGrid();
+	try {
+		const data = await callApi('/vocabulary-sets');
+		renderVocabularyGrid(data);
+		renderWordsOfTheWeek();
+	} catch (err) {
+		console.error('Error fetching data: ', err.message);
+	}
+	
 
-	const showMoreBtn = document.getElementById("showMoreBtn");
-	showMoreBtn.addEventListener("click", () => {
-		loadMoreVocabSets();
-	});
+	// const showMoreBtn = document.getElementById("showMoreBtn");
+	// showMoreBtn.addEventListener("click", () => {
+	// 	loadMoreVocabSets();
+	// });
 });
