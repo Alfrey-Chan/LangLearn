@@ -2,10 +2,9 @@ import {
 	setupPage,
 	createRatingButtons,
 	createSeparator,
-	createBackButton,
 	updateActive,
 } from "./components.js";
-import { fetchData, callApi } from "./constants.js";
+import { fetchData, callApi, VOCAB_CONFIG } from "./constants.js";
 
 function renderEntryHeader(entryData) {
 	document.querySelector(".entry-word").innerHTML = entryData["word"];
@@ -76,18 +75,18 @@ function renderExampleSentences(sentences) {
 }
 
 function renderDialogueExamples(examples) {
-	const container = document.querySelector(".contextual-usage-examples");
+	const container = document.querySelector(".example-dialogues-container");
 
 	for (let i = 0; i < examples.length; i++) {
 		const id = examples[i].id;
-		const sentenceType = 'dialogue';
+		const sentenceType = "dialogue";
 		const upvotes = examples[i].upvotes;
 		const downvotes = examples[i].downvotes;
 		const textData = JSON.parse(examples[i].dialogue_data);
 		const div = document.createElement("div");
 		div.classList.add("card");
 
-		for (let j=0; j<textData.length; j++) {
+		for (let j = 0; j < textData.length; j++) {
 			const translation = textData[j].translation;
 
 			if (j > 0) {
@@ -143,7 +142,7 @@ function initializeRatingButtons() {
 		const isUpvote = btn.dataset.action === "upvote" ? true : false; // 'upvote' or 'downvote'
 		const exampleId = btn.dataset.id;
 		const exampleType = btn.dataset.type;
-		console.log('Button data:', { exampleId, exampleType, isUpvote });
+		console.log("Button data:", { exampleId, exampleType, isUpvote });
 
 		try {
 			const result = await callApi(
@@ -208,6 +207,43 @@ function handleTabSwitch(tabType, section) {
 		.forEach((el) => (el.style.display = "block"));
 }
 
+function initializeShowMoreButtons(sentences, dialogues) {
+	const showMoreSentencesBtn = document.getElementById("showMoreSentences");
+	const showMoreDialoguesBtn = document.getElementById("showMoreDialogues");
+
+	showMoreSentencesBtn.addEventListener("click", () => {
+		const exampleSentencesContainer = document.querySelector(
+			".example-sentences-container"
+		);
+		const sentenceCards = exampleSentencesContainer.querySelectorAll(".card");
+		const currentIndex = sentenceCards.length;
+		const upperBound = currentIndex + VOCAB_CONFIG.loadMoreExamples;
+
+		const sentencesToDisplay = sentences.slice(currentIndex, upperBound);
+		renderExampleSentences(sentencesToDisplay);
+
+		if (upperBound >= sentencesToDisplay.length) {
+			showMoreSentencesBtn.classList.add("hidden");
+		}
+	});
+
+	showMoreDialoguesBtn.addEventListener("click", () => {
+		const exampleDialoguesContainer = document.querySelector(
+			".example-dialogues-container"
+		);
+		const dialogueCards = exampleDialoguesContainer.querySelectorAll(".card");
+		const currentIndex = dialogueCards.length;
+		const upperBound = currentIndex + VOCAB_CONFIG.loadMoreExamples;
+
+		const dialoguesToDisplay = dialogues.slice(currentIndex, upperBound);
+		renderDialogueExamples(dialoguesToDisplay);
+
+		if (upperBound >= dialoguesToDisplay.length) {
+			showMoreDialoguesBtn.classList.add("hidden");
+		}
+	});
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
 	const urlParams = new URLSearchParams(window.location.search);
 	const entryId = urlParams.get("id");
@@ -215,33 +251,30 @@ document.addEventListener("DOMContentLoaded", async () => {
 	initializeToggleButtons();
 
 	try {
-		const data = await fetchData(`/vocabulary-entries/${entryId}`);
+		const data = await callApi(`/vocabulary-entries/${entryId}`);
 		const definitions = data["meanings"];
 		const sentenceExamples = data["sentence_examples"];
 		const dialogueExamples = data["dialogue_examples"];
 		const additionalNotes = data["additional_notes"];
 
+		const sentencesToDisplay = sentenceExamples.slice(
+			0,
+			VOCAB_CONFIG.sentencesToDisplay
+		);
+		const dialoguesToDisplay = dialogueExamples.slice(
+			0,
+			VOCAB_CONFIG.dialoguesToDisplay
+		);
+		const loadMoreCount = VOCAB_CONFIG.loadMoreExamples;
+
 		renderEntryHeader(data);
 		renderDefinitions(definitions);
-		renderExampleSentences(sentenceExamples);
-		renderDialogueExamples(dialogueExamples);
+		renderExampleSentences(sentencesToDisplay);
+		renderDialogueExamples(dialoguesToDisplay);
 		initializeRatingButtons();
 		renderAdditionalNotes(additionalNotes);
-
+		initializeShowMoreButtons(sentenceExamples, dialogueExamples);
 	} catch (err) {
 		console.error("Error fetching data: ", err);
 	}
-
-	// fetch(`http://127.0.0.1:8000/api` )
-	// 	.then((res) => res.json())
-	// 	.then((data) => {
-	// 		// console.table(data);
-	// 		// const sampleData = data[0];
-	// 		// const definitions = sampleData.meanings;
-	// 		// const exampleSentences = sampleData.meanings[0].usage_examples;
-	// 		// const contextualExamples = sampleData.meanings[0].contextual_usage;
-	// 		// const additionalNotes = sampleData.meanings[0].additional_notes;
-
-	// 		// renderAdditionalNotes(additionalNotes);
-	// 	});
 });

@@ -8,9 +8,12 @@ export const CAROUSEL_CONFIG = {
 };
 
 export const VOCAB_CONFIG = {
-	itemsPerPage: 3,
+	itemsPerPage: 2,
 	loadMoreIncrement: 4, // for home page
-	maxPagesToDisplay: 5, // if more than this number of pages, show prev and next pagination btns
+	maxPagesToDisplay: 3, // if more than this number of pages, show prev and next pagination btns
+	sentencesToDisplay: 2,
+	dialoguesToDisplay: 1,
+	loadMoreExamples: 1,
 };
 
 export const fetchData = async (endpoint) => {

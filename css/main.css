@@ -290,18 +290,30 @@ body {
 
 /* Rating Buttons */
 .ratings {
+	margin-top: var(--space-3);
 	display: flex;
+	align-items: center;
+	gap: var(--space-2);
 	justify-content: flex-end;
-	gap: var(--space-3);
 }
 
 .rating-btn {
 	display: flex;
 	align-items: center;
 	gap: var(--space-1);
-	background: none;
-	border: none;
-	color: var(--muted-foreground);
+	padding: var(--space-1) var(--space-2);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	background-color: var(--background);
+	color: var(--text-secondary);
+	font-size: var(--font-size-xs);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.rating-btn:hover {
+	background-color: var(--surface);
+	border-color: var(--text-secondary);
 }
 
 /* Base Card Component */
@@ -951,7 +963,7 @@ body {
 }
 
 /* Entry contextual examples */
-.contextual-usage-examples {
+.example-dialogues-container {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-4);
