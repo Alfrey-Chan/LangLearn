@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LangLearn - Login</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../css/main.css" />
+	</head>
+	<body class="page-login">
+		<main class="main">
+			<div class="card">
+				<h1 class="brand">LangLearn</h1>
+				<!-- Login View -->
+				<div class="login-view active">
+					<h2 class="title">Sign in</h2>
+					<p class="title__subtext">
+						Choose a provider or use email &amp; password.
+					</p>
+					<div class="socials-options" aria-label="Social sign-in options">
+						<button
+							class="socials-btn btn-google"
+							aria-label="Sign in with Google"
+						>
+							<!-- Google icon -->
+							<svg
+								width="18"
+								height="18"
+								viewBox="0 0 48 48"
+								aria-hidden="true"
+							>
+								<path
+									fill="#FFC107"
+									d="M43.6 20.5H42V20H24v8h11.3C33.7 31.7 29.3 35 24 35c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.4 5.1 29.5 3 24 3 12.3 3 3 12.3 3 24s9.3 21 21 21c10.5 0 20-7.6 20-21 0-1.2-.1-2.3-.4-3.5z"
+								/>
+								<path
+									fill="#FF3D00"
+									d="M6.3 14.7l6.6 4.8C14.7 16.9 18.9 14 24 14c3 0 5.8 1.1 7.9 3l5.7-5.7C34.4 7.1 29.5 5 24 5 16.3 5 9.6 9.4 6.3 14.7z"
+								/>
+								<path
+									fill="#4CAF50"
+									d="M24 43c5.2 0 10-2 13.6-5.2l-6.3-5.3C29.2 33.8 26.7 35 24 35c-5.2 0-9.6-3.3-11.3-7.9l-6.6 5.1C9.4 38.6 16.1 43 24 43z"
+								/>
+								<path
+									fill="#1976D2"
+									d="M43.6 20.5H42V20H24v8h11.3c-1.3 3.8-4.8 7-9.3 7-5.2 0-9.6-3.3-11.3-7.9l-6.6 5.1C9.4 38.6 16.1 43 24 43c10.5 0 20-7.6 20-21 0-1.2-.1-2.3-.4-3.5z"
+								/>
+							</svg>
+							Continue with Google
+						</button>
+						<button
+							class="socials-btn btn-apple"
+							aria-label="Continue with Apple"
+						>
+							<!-- Apple icon -->
+							<svg
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								aria-hidden="true"
+							>
+								<path
+									d="M16.365 1.43c0 1.14-.476 2.202-1.23 2.98-.79.816-2.08 1.45-3.17 1.37-.144-1.1.454-2.23 1.21-3 .79-.81 2.16-1.39 3.19-1.35zM21.5 17.23c-.61 1.41-.9 2.04-1.69 3.29-1.1 1.68-2.66 3.78-4.58 3.79-1.07.01-1.35-.71-3.06-.71-1.71 0-2.02.71-3.09.72-1.93.02-3.42-1.89-4.52-3.56-3.11-4.72-3.44-10.26-1.52-13.19C4.13 5.63 5.77 4.63 7.6 4.61c1.89-.02 3.09 1.01 4.65 1.01 1.55 0 2.51-1.01 4.66-1 1.52 0 3.13.83 4.1 2.25-3.6 1.98-3.02 7.1.49 9.36z"
+								/>
+							</svg>
+							Continue with Apple
+						</button>
+					</div>
+					<div class="divider">or</div>
+					<form action="submit" id="login-form">
+						<div class="row">
+							<label for="login-email">Email</label>
+							<input
+								id="login-email"
+								class="input"
+								type="email"
+								placeholder="langlearn@example.com"
+								autocomplete="username"
+								required
+							/>
+						</div>
+						<div class="row">
+							<div class="input-group">
+								<label for="login-password">Password</label>
+								<input
+									type="password"
+									class="input"
+									placeholder="Password"
+									autocomplete="current-password"
+									required
+									id="login-password"
+								/>
+								<svg
+									class="input-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+									<circle cx="12" cy="12" r="3" />
+								</svg>
+
+								<!-- Hidden state icon -->
+								<svg
+									class="input-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path
+										d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 
+                                        3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+									/>
+									<line x1="1" y1="1" x2="23" y2="23" />
+								</svg>
+							</div>
+						</div>
+					</form>
+					<button class="forgot-password">Forgot password?</button>
+					<button class="signin-btn">Sign in</button>
+					<p class="signup-footer">
+						Don't have an account?<button class="signup-link">Sign up</button>
+					</p>
+				</div>
+
+				<!-- Create Account -->
+				<div class="create-account-view hidden">
+					<h2 class="title">Create your account</h2>
+					<p class="title__subtext">We'll send you a verification email.</p>
+					<form action="submit" id="signup-form">
+						<div class="row">
+							<label for="signup-email">Email</label>
+							<input
+								id="signup-email"
+								class="input"
+								type="email"
+								placeholder="langlearn@example.com"
+								autocomplete="username"
+								required
+							/>
+						</div>
+						<div class="row">
+							<div class="input-group">
+								<label for="signup-password">Password</label>
+								<input
+									type="password"
+									class="input"
+									placeholder="Enter your password"
+									autocomplete="new-password"
+									required
+									id="signup-password"
+								/>
+								<svg
+									class="input-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+									<circle cx="12" cy="12" r="3" />
+								</svg>
+
+								<!-- Hidden state icon -->
+								<svg
+									class="input-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path
+										d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 
+                                            3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+									/>
+									<line x1="1" y1="1" x2="23" y2="23" />
+								</svg>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-group">
+								<label for="signup-password-confirm">Confirm password</label>
+								<input
+									type="password"
+									class="input"
+									placeholder="Re-enter your password"
+									autocomplete="new-password"
+									required
+									id="signup-password-confirm"
+								/>
+								<svg
+									class="input-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+									<circle cx="12" cy="12" r="3" />
+								</svg>
+
+								<!-- Hidden state icon -->
+								<svg
+									class="input-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path
+										d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 
+                                            3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+									/>
+									<line x1="1" y1="1" x2="23" y2="23" />
+								</svg>
+							</div>
+						</div>
+					</form>
+					<p class="terms-privacy">
+						By continuing you agree to our
+						<span class="terms">Terms</span> and
+						<span class="privacy">Privacy Policy.</span>
+					</p>
+					<button class="create-account-btn">Create account</button>
+					<p class="signup-footer">
+						Already have an account?<button class="login-link">Sign in</button>
+					</p>
+				</div>
+			</div>
+		</main>
+
+		<script src="../js/login.js"></script>
+	</body>
+</html>

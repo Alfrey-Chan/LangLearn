@@ -114,6 +114,23 @@ function renderAdditionalNotes(additionalNotes) {
 	document.querySelector(".additional-notes-text").innerHTML = additionalNotes;
 }
 
+function renderRelatedEntries(relatedEntries) {
+	const container = document.querySelector(".related-words-buttons");
+	const entries = JSON.parse(relatedEntries);
+
+	container.innerHTML = entries
+		.map(
+			(entry) => `
+		<button class="related-words-btn">
+			<span class="related-jp">${entry.word}</span>
+			<span class="related-hira">${entry.hiragana}</span>
+			<span class="related-mean">- ${entry.definition}</span>
+		</button>
+		`
+		)
+		.join("");
+}
+
 function updateRatingDisplay(result, exampleType) {
 	const id = result["id"];
 	const upvotes = result["upvotes"];
@@ -207,7 +224,7 @@ function handleTabSwitch(tabType, section) {
 		.forEach((el) => (el.style.display = "block"));
 }
 
-function initializeShowMoreButtons(sentences, dialogues) {
+function initializeShowMoreButtons(sentences, dialogues, loadMoreCount) {
 	const showMoreSentencesBtn = document.getElementById("showMoreSentences");
 	const showMoreDialoguesBtn = document.getElementById("showMoreDialogues");
 
@@ -217,7 +234,7 @@ function initializeShowMoreButtons(sentences, dialogues) {
 		);
 		const sentenceCards = exampleSentencesContainer.querySelectorAll(".card");
 		const currentIndex = sentenceCards.length;
-		const upperBound = currentIndex + VOCAB_CONFIG.loadMoreExamples;
+		const upperBound = currentIndex + loadMoreCount;
 
 		const sentencesToDisplay = sentences.slice(currentIndex, upperBound);
 		renderExampleSentences(sentencesToDisplay);
@@ -256,6 +273,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		const sentenceExamples = data["sentence_examples"];
 		const dialogueExamples = data["dialogue_examples"];
 		const additionalNotes = data["additional_notes"];
+		const relatedEntries = data["related_words"];
 
 		const sentencesToDisplay = sentenceExamples.slice(
 			0,
@@ -273,7 +291,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 		renderDialogueExamples(dialoguesToDisplay);
 		initializeRatingButtons();
 		renderAdditionalNotes(additionalNotes);
-		initializeShowMoreButtons(sentenceExamples, dialogueExamples);
+		initializeShowMoreButtons(
+			sentenceExamples,
+			dialogueExamples,
+			loadMoreCount
+		);
+		renderRelatedEntries(relatedEntries);
 	} catch (err) {
 		console.error("Error fetching data: ", err);
 	}
