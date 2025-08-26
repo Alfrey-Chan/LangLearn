@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../css/main.css" />
+	</head>
+	<body>
+        <main class="main">
+            <section class="results-section"></section>
+            <section class="section">
+                <div class="quiz-header">
+                    <h1 class="quiz-title"></h1>
+                    <div class="question-progress">
+                        <p>Question <span id="question-current"></span> of <span id="question-end"></span></p>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill">
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="question-instruction"></h2>
+                <div class="quiz-question"></div>
+
+                <div class="question-options">
+                    <!-- MC choice buttons -->
+                </div>
+
+                <button class="next-question-btn" disabled>Next Question</button>
+                <button class="complete-quiz-btn hidden" disabled>Complete Quiz</button>
+            </section>
+        </main>
+
+
+
+		<script type="module" src="../js/quiz.js"></script>
+	</body>
+</html>
