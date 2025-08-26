@@ -1,5 +1,6 @@
 import { CAROUSEL_CONFIG, VOCAB_CONFIG, callApi } from "./constants.js";
 import { setupPage } from "./components.js";
+import { ensureAuth } from "./auth-guard.js";
 
 let carouselInterval;
 let displayVocabSetCount = VOCAB_CONFIG.initialDisplayCount;
@@ -188,18 +189,19 @@ function createCarouselDot(index, carousel, data) {
 // }
 
 document.addEventListener("DOMContentLoaded", async () => {
-	// Set up page with header and navigation
+	const session = await ensureAuth();
+	if (!session) return;
+	console.log(session);
 	setupPage("home");
 
 	// Initialize page content
 	try {
-		const data = await callApi('/vocabulary-sets');
+		const data = await session.fetchJSON("http://127.0.0.1:8000/api/vocabulary-sets");
 		renderVocabularyGrid(data);
 		renderWordsOfTheWeek();
 	} catch (err) {
-		console.error('Error fetching data: ', err.message);
+		console.error("Error fetching data: ", err.message);
 	}
-	
 
 	// const showMoreBtn = document.getElementById("showMoreBtn");
 	// showMoreBtn.addEventListener("click", () => {

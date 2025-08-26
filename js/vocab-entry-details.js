@@ -5,6 +5,7 @@ import {
 	updateActive,
 } from "./components.js";
 import { fetchData, callApi, VOCAB_CONFIG } from "./constants.js";
+import { ensureAuth } from "./auth-guard.js";
 
 function renderEntryHeader(entryData) {
 	document.querySelector(".entry-word").innerHTML = entryData["word"];
@@ -15,7 +16,6 @@ function renderEntryHeader(entryData) {
 }
 
 function renderDefinitions(definitions) {
-	// console.table("")
 	definitions = JSON.parse(definitions);
 	// console.log("definitions type:", typeof definitions);
 	// console.log("definitions length:", definitions?.length);
@@ -110,7 +110,6 @@ function renderDialogueExamples(examples) {
 }
 
 function renderAdditionalNotes(additionalNotes) {
-	console.table(additionalNotes);
 	document.querySelector(".additional-notes-text").innerHTML = additionalNotes;
 }
 
@@ -262,13 +261,16 @@ function initializeShowMoreButtons(sentences, dialogues, loadMoreCount) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+	const session = await ensureAuth();
+	if (!session) return;
+
 	const urlParams = new URLSearchParams(window.location.search);
 	const entryId = urlParams.get("id");
 	setupPage(`vocabulary-set/${entryId}`, " - Entry Details");
 	initializeToggleButtons();
 
 	try {
-		const data = await callApi(`/vocabulary-entries/${entryId}`);
+		const data = await session.fetchJSON(`http://127.0.0.1:8000/api/vocabulary-entries/${entryId}`);
 		const definitions = data["meanings"];
 		const sentenceExamples = data["sentence_examples"];
 		const dialogueExamples = data["dialogue_examples"];
