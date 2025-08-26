@@ -23,6 +23,7 @@
 					<div class="socials-options" aria-label="Social sign-in options">
 						<button
 							class="socials-btn btn-google"
+                            data-type="google"
 							aria-label="Sign in with Google"
 						>
 							<!-- Google icon -->
@@ -53,6 +54,7 @@
 						</button>
 						<button
 							class="socials-btn btn-apple"
+                            data-type="apple"
 							aria-label="Continue with Apple"
 						>
 							<!-- Apple icon -->
@@ -96,6 +98,8 @@
 								/>
 								<svg
 									class="input-icon"
+									data-toggle="#login-password"
+									aria-label="Show password"
 									width="20"
 									height="20"
 									viewBox="0 0 24 24"
@@ -107,22 +111,6 @@
 									<circle cx="12" cy="12" r="3" />
 								</svg>
 
-								<!-- Hidden state icon -->
-								<svg
-									class="input-icon"
-									width="20"
-									height="20"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<path
-										d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 
-                                        3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
-									/>
-									<line x1="1" y1="1" x2="23" y2="23" />
-								</svg>
 							</div>
 						</div>
 					</form>
@@ -137,7 +125,10 @@
 				<div class="create-account-view hidden">
 					<h2 class="title">Create your account</h2>
 					<p class="title__subtext">We'll send you a verification email.</p>
+
+                    <!-- Form -->
 					<form action="submit" id="signup-form">
+                        <!-- Email -->
 						<div class="row">
 							<label for="signup-email">Email</label>
 							<input
@@ -149,6 +140,8 @@
 								required
 							/>
 						</div>
+
+                        <!-- Password -->
 						<div class="row">
 							<div class="input-group">
 								<label for="signup-password">Password</label>
@@ -162,6 +155,8 @@
 								/>
 								<svg
 									class="input-icon"
+									data-toggle="#signup-password"
+									aria-label="Show password"
 									width="20"
 									height="20"
 									viewBox="0 0 24 24"
@@ -172,25 +167,10 @@
 									<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
 									<circle cx="12" cy="12" r="3" />
 								</svg>
-
-								<!-- Hidden state icon -->
-								<svg
-									class="input-icon"
-									width="20"
-									height="20"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<path
-										d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 
-                                            3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
-									/>
-									<line x1="1" y1="1" x2="23" y2="23" />
-								</svg>
 							</div>
 						</div>
+
+                        <!-- Confirm Password -->
 						<div class="row">
 							<div class="input-group">
 								<label for="signup-password-confirm">Confirm password</label>
@@ -204,6 +184,8 @@
 								/>
 								<svg
 									class="input-icon"
+									data-toggle="#signup-password-confirm"
+									aria-label="Show password"
 									width="20"
 									height="20"
 									viewBox="0 0 24 24"
@@ -214,26 +196,11 @@
 									<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
 									<circle cx="12" cy="12" r="3" />
 								</svg>
-
-								<!-- Hidden state icon -->
-								<svg
-									class="input-icon"
-									width="20"
-									height="20"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<path
-										d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 
-                                            3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
-									/>
-									<line x1="1" y1="1" x2="23" y2="23" />
-								</svg>
 							</div>
 						</div>
 					</form>
+
+                    <!-- Terms and Privacy -->
 					<p class="terms-privacy">
 						By continuing you agree to our
 						<span class="terms">Terms</span> and
@@ -247,6 +214,6 @@
 			</div>
 		</main>
 
-		<script src="../js/login.js"></script>
+		<script type="module" src="../js/login.js"></script>
 	</body>
 </html>
