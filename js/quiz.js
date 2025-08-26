@@ -4,14 +4,10 @@ class QuizState {
 	constructor(questions, id) {
 		// quiz id
 		this.id = id;
+		this.originalQuestions = [...questions]; // Keep original for retakes
 
-		// shuffle questions
-		this.questions = shuffle(questions);
-
-		// shuffle options
-		this.questions.forEach((question) => {
-			question.items.options = shuffle(question.items.options);
-		});
+		// shuffle questions and options
+		this.shuffle();
 
 		this.index = 0;
 		this.answers = []; // Store user answers
@@ -47,16 +43,34 @@ class QuizState {
 			isCorrect: isCorrect,
 		};
 	}
-}
 
-// Shuffle questions and also the options
-function shuffle(array) {
-	const shuffled = array.slice();
-	for (let i = shuffled.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+	// Shuffle questions and options
+	shuffle() {
+		// Deep copy original questions to avoid mutating original data
+		this.questions = this.shuffleArray([...this.originalQuestions]);
+
+		// Shuffle options within each question
+		this.questions.forEach((question) => {
+			question.items.options = this.shuffleArray([...question.items.options]);
+		});
 	}
-	return shuffled;
+
+	// Reset quiz for retake with new shuffle
+	retake() {
+		this.index = 0;
+		this.answers = [];
+		this.shuffle(); // Reshuffle everything
+	}
+
+	// Fisher-Yates shuffle algorithm
+	shuffleArray(array) {
+		const shuffled = [...array];
+		for (let i = shuffled.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+		}
+		return shuffled;
+	}
 }
 
 function updateProgressBar(state) {
@@ -193,8 +207,9 @@ function showResults(state, totalQuestions, correctAnswers) {
     
     container.innerHTML = headerHTML + questionsHTML;
     
-    // Add event listener for back button
+    // Add event listener for back button and retake quiz button
     setupBackButton();
+    setupRetakeQuizBtn(state);
 }
 
 function setupBackButton() {
@@ -205,6 +220,31 @@ function setupBackButton() {
             const urlParams = new URLSearchParams(window.location.search);
             const vocabSetId = urlParams.get("id");
             window.location.href = `vocab-set-details.html?id=${vocabSetId}`;
+        });
+    }
+}
+
+function setupRetakeQuizBtn(state) {
+    const retakeQuizBtn = document.querySelector('.retake-quiz-btn');
+
+    if (retakeQuizBtn) {
+        retakeQuizBtn.addEventListener('click', () => {
+            state.retake(); // Reset and reshuffle quiz
+            
+            // Hide results and show quiz sections
+            document.querySelectorAll(".section").forEach(el => {
+                el.classList.remove("showing-results");
+            });
+
+            // Clear quiz results section
+            document.querySelector(".results-section").innerHTML = "";
+            
+            // Reset button states
+            document.querySelector(".next-question-btn").classList.remove("hidden");
+            document.querySelector(".complete-quiz-btn").classList.add("hidden");
+            
+            // Render first question
+            renderQuestionContents(state);
         });
     }
 }
@@ -332,7 +372,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 			`http://127.0.0.1:8000/api/take-quiz/${vocabSetId}`
 		);
 
-		const test = quizData["questions"].slice();
+		const test = quizData["questions"].slice(0, 2);
 		// const state = new QuizState(quizData["questions"], quizData.id);
 		const state = new QuizState(test, quizData.id);
 
